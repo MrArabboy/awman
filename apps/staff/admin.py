@@ -67,6 +67,17 @@ class RewardFileAdmin(TranslatableStackedInline):
     model = RewardFile
 
 
+class RewardTypeAdmin(TranslatableAdmin):
+    fieldsets = (
+        (
+            _("Translated Fields"),
+            {
+                "fields": ("name",),
+            },
+        ),
+    )
+
+
 class RewardAdmin(TranslatableAdmin):
     inlines = [RewardFileAdmin]
     fieldsets = (
@@ -108,6 +119,6 @@ class RewardFileAdmin2(TranslatableAdmin):
 admin.site.register(Employee, EmployeeAdmin)
 admin.site.register(OrganizationType, OrganizationTypeAdmin)
 admin.site.register(Organization, OrganizationAdmin)
-admin.site.register(RewardType)
+admin.site.register(RewardType, RewardTypeAdmin)
 admin.site.register(Reward, RewardAdmin)
 admin.site.register(RewardFile, RewardFileAdmin2)
