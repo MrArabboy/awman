@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-14 15:36+0500\n"
+"POT-Creation-Date: 2021-10-18 12:00+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,110 +20,135 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
+#: .\admin.py:21 .\admin.py:61 .\admin.py:99 .\admin.py:116
+msgid "Nontranslated fields"
+msgstr "Непереведенные поля"
+
+#: .\admin.py:34 .\admin.py:46 .\admin.py:67 .\admin.py:83 .\admin.py:105
+#: .\admin.py:125
+msgid "Translated Fields"
+msgstr "Переведенные поля"
+
 #: .\apps.py:8
 msgid "Staff"
-msgstr ""
+msgstr "Персонал"
 
-#: .\models.py:10 .\models.py:11
+#: .\models.py:11 .\models.py:80
 msgid "Employee"
-msgstr ""
+msgstr "Сотрудник"
 
-#: .\models.py:13
-msgid "Male"
-msgstr ""
-
-#: .\models.py:13
-msgid "Female"
-msgstr ""
+#: .\models.py:12
+msgid "Employees"
+msgstr "Сотрудники"
 
 #: .\models.py:14
-msgid "First Name"
-msgstr ""
+msgid "Male"
+msgstr "мужской"
+
+#: .\models.py:14
+msgid "Female"
+msgstr "женский"
 
 #: .\models.py:15
-msgid "Last Name"
-msgstr ""
+msgid "First Name"
+msgstr "Имя"
 
 #: .\models.py:16
-msgid "Middle Name"
-msgstr ""
+msgid "Last Name"
+msgstr "Фамилия"
 
 #: .\models.py:17
-msgid "Photo"
-msgstr ""
+msgid "Middle Name"
+msgstr "Отчество"
 
 #: .\models.py:18
-msgid "Birthday"
-msgstr ""
+msgid "Photo"
+msgstr "Фото"
 
 #: .\models.py:19
-msgid "Gender"
-msgstr ""
+msgid "Birthday"
+msgstr "Дата рождения "
 
 #: .\models.py:20
+msgid "Gender"
+msgstr "Пол"
+
+#: .\models.py:21
 msgid "Biography"
-msgstr ""
+msgstr "Биография"
 
-#: .\models.py:28
+#: .\models.py:34
 msgid "Organization Type"
-msgstr ""
+msgstr "Структурное подразделение организации"
 
-#: .\models.py:29
+#: .\models.py:35
 msgid "Organization Types"
-msgstr ""
+msgstr "Структурное подразделение организации"
 
-#: .\models.py:31 .\models.py:56
+#: .\models.py:37 .\models.py:64
 msgid "Name"
-msgstr ""
+msgstr "Наименование"
 
-#: .\models.py:39
+#: .\models.py:45
 msgid "Organization"
-msgstr ""
+msgstr "Организация"
 
-#: .\models.py:40
+#: .\models.py:46
 msgid "Organizations"
-msgstr ""
+msgstr "Организации"
 
-#: .\models.py:44
+#: .\models.py:49 .\models.py:83
+msgid "Type"
+msgstr "Тип"
+
+#: .\models.py:52
 msgid "Organization Name"
-msgstr ""
+msgstr "Название организации"
 
-#: .\models.py:53
+#: .\models.py:61
 msgid "Reward Type"
-msgstr ""
+msgstr "Тип вознаграждения"
 
-#: .\models.py:54
+#: .\models.py:62
 msgid "Reward Types"
-msgstr ""
+msgstr "Типы вознаграждений"
 
-#: .\models.py:64
+#: .\models.py:72 .\models.py:104
 msgid "Reward"
-msgstr ""
+msgstr "Награда"
 
-#: .\models.py:65
+#: .\models.py:73
 msgid "Rewards"
-msgstr ""
+msgstr "Награды"
 
-#: .\models.py:68
+#: .\models.py:76
 msgid "Reward Name"
-msgstr ""
+msgstr "Наименование награды"
 
-#: .\models.py:69
+#: .\models.py:77
 msgid "Description"
-msgstr ""
-
-#: .\models.py:82
-msgid "Reward File"
-msgstr ""
-
-#: .\models.py:83
-msgid "Reward Files"
-msgstr ""
+msgstr "Описание"
 
 #: .\models.py:86
-msgid "File Name"
-msgstr ""
+msgid "Issued By"
+msgstr "Выдан"
 
-#: .\models.py:91
+#: .\models.py:88
+msgid "Date Of Issue"
+msgstr "Дата выдачи"
+
+#: .\models.py:96
+msgid "Reward File"
+msgstr "Файл с наградой"
+
+#: .\models.py:97
+msgid "Reward Files"
+msgstr "Файлы с наградами"
+
+#: .\models.py:100
+msgid "File Name"
+msgstr "Имя файла"
+
+#: .\models.py:109
 msgid "File"
-msgstr ""
+msgstr "Файл"
