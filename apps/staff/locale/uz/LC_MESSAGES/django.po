@@ -1,0 +1,135 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-18 09:20+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\admin.py:17 .\admin.py:52 .\admin.py:74 .\admin.py:91
+msgid "Nontranslated fields"
+msgstr "Tarjima qilinmaydigan maydonlar"
+
+#: .\admin.py:30 .\admin.py:41 .\admin.py:58 .\admin.py:80 .\admin.py:100
+msgid "Translated Fields"
+msgstr "Tarjima qilinadigan maydonlar"
+
+#: .\apps.py:8
+msgid "Staff"
+msgstr "Xodimlar"
+
+#: .\models.py:10 .\models.py:11
+msgid "Employee"
+msgstr "Xodimlar"
+
+#: .\models.py:13
+msgid "Male"
+msgstr "Erkak"
+
+#: .\models.py:13
+msgid "Female"
+msgstr "Ayol"
+
+#: .\models.py:14
+msgid "First Name"
+msgstr "Ismi"
+
+#: .\models.py:15
+msgid "Last Name"
+msgstr "Familyasi"
+
+#: .\models.py:16
+msgid "Middle Name"
+msgstr "Sharifi"
+
+#: .\models.py:17
+msgid "Photo"
+msgstr "Rasmi"
+
+#: .\models.py:18
+msgid "Birthday"
+msgstr "Tug'ilgan kuni"
+
+#: .\models.py:19
+msgid "Gender"
+msgstr "Jinsi"
+
+#: .\models.py:20
+msgid "Biography"
+msgstr "Biografiyasi"
+
+#: .\models.py:28
+msgid "Organization Type"
+msgstr "Tashkilot turi"
+
+#: .\models.py:29
+msgid "Organization Types"
+msgstr "Tashkilot turlari"
+
+#: .\models.py:31 .\models.py:56
+msgid "Name"
+msgstr "Nomi"
+
+#: .\models.py:39
+msgid "Organization"
+msgstr "Tashkilot"
+
+#: .\models.py:40
+msgid "Organizations"
+msgstr "Tashkilotlar"
+
+#: .\models.py:44
+msgid "Organization Name"
+msgstr "Tashkilot nomi"
+
+#: .\models.py:53
+msgid "Reward Type"
+msgstr "Mukofot turi"
+
+#: .\models.py:54
+msgid "Reward Types"
+msgstr "Mukofot turlari"
+
+#: .\models.py:64 .\models.py:90
+msgid "Reward"
+msgstr "Mukofot"
+
+#: .\models.py:65
+msgid "Rewards"
+msgstr "Mukofotlar"
+
+#: .\models.py:68
+msgid "Reward Name"
+msgstr "Mukofot nomi"
+
+#: .\models.py:69
+msgid "Description"
+msgstr "Qaydlar"
+
+#: .\models.py:82
+msgid "Reward File"
+msgstr "Mukofot fayli"
+
+#: .\models.py:83
+msgid "Reward Files"
+msgstr "Mukofot fayllari"
+
+#: .\models.py:86
+msgid "File Name"
+msgstr "Fayl nomi"
+
+#: .\models.py:95
+msgid "File"
+msgstr "Fayl"
