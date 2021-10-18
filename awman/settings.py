@@ -33,7 +33,6 @@ ALLOWED_HOSTS = ["127.0.0.1", "arabboy3332.pythonanywhere.com"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
-    "django.contrib.sites",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -149,10 +148,10 @@ LANGUAGES = (
     ("ru", gettext("Russian")),
 )
 # Parler Configuration
-SITE_ID = 1
+
 PARLER_DEFAULT_LANGUAGE_CODE = "en"
 PARLER_LANGUAGES = {
-    1: (
+    None: (
         {
             "code": "en",
         },
