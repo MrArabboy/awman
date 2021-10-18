@@ -22,12 +22,12 @@ msgstr ""
 
 #: .\admin.py:21 .\admin.py:61 .\admin.py:99 .\admin.py:116
 msgid "Nontranslated fields"
-msgstr "Непереведенные поля"
+msgstr "Непереводимые поля"
 
 #: .\admin.py:34 .\admin.py:46 .\admin.py:67 .\admin.py:83 .\admin.py:105
 #: .\admin.py:125
 msgid "Translated Fields"
-msgstr "Переведенные поля"
+msgstr "Переводимые поля"
 
 #: .\apps.py:8
 msgid "Staff"
