@@ -8,7 +8,7 @@ from django.utils.translation import ugettext_lazy as _
 class Employee(TranslatableModel):
     class Meta:
         verbose_name = _("Employee")
-        verbose_name_plural = _("Employee")
+        verbose_name_plural = _("Employees")
 
     GENDER_CHOICES = (("male", _("Male")), ("female", _("Female")))
     first_name = models.CharField(_("First Name"), max_length=50)
@@ -68,7 +68,9 @@ class Reward(TranslatableModel):
         name=models.CharField(_("Reward Name"), max_length=100),
         description=models.TextField(_("Description"), null=True, blank=True),
     )
-    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    employee = models.ForeignKey(
+        Employee, verbose_name=_("Employee"), on_delete=models.CASCADE
+    )
     type = models.ForeignKey(
         RewardType, verbose_name=_("Type"), on_delete=models.SET_NULL, null=True
     )

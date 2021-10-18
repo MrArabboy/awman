@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-18 10:20+0500\n"
+"POT-Creation-Date: 2021-10-18 10:28+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,8 +31,14 @@ msgstr "Tarjima qilinadigan maydonlar"
 msgid "Staff"
 msgstr "Xodimlar"
 
-#: .\models.py:10 .\models.py:11
+#: .\models.py:10 .\models.py:72
 msgid "Employee"
+msgstr "Xodim"
+
+#: .\models.py:11
+#, fuzzy
+#| msgid "Employee"
+msgid "Employees"
 msgstr "Xodimlar"
 
 #: .\models.py:13
@@ -103,7 +109,7 @@ msgstr "Mukofot turi"
 msgid "Reward Types"
 msgstr "Mukofot turlari"
 
-#: .\models.py:64 .\models.py:94
+#: .\models.py:64 .\models.py:96
 msgid "Reward"
 msgstr "Mukofot"
 
@@ -119,30 +125,30 @@ msgstr "Mukofot nomi"
 msgid "Description"
 msgstr "Qaydlar"
 
-#: .\models.py:73
+#: .\models.py:75
 msgid "Type"
 msgstr "Turi"
 
-#: .\models.py:76
+#: .\models.py:78
 msgid "Issued By"
 msgstr "Kim tomonidan berilgan"
 
-#: .\models.py:78
+#: .\models.py:80
 msgid "Date Of Issue"
 msgstr "Berilgan Sanasi"
 
-#: .\models.py:86
+#: .\models.py:88
 msgid "Reward File"
 msgstr "Mukofot fayli"
 
-#: .\models.py:87
+#: .\models.py:89
 msgid "Reward Files"
 msgstr "Mukofot fayllari"
 
-#: .\models.py:90
+#: .\models.py:92
 msgid "File Name"
 msgstr "Fayl nomi"
 
-#: .\models.py:99
+#: .\models.py:101
 msgid "File"
 msgstr "Fayl"
