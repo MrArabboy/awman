@@ -45,7 +45,9 @@ class Organization(TranslatableModel):
         verbose_name = _("Organization")
         verbose_name_plural = _("Organizations")
 
-    type = models.ForeignKey(OrganizationType, on_delete=models.SET_NULL, null=True)
+    type = models.ForeignKey(
+        OrganizationType, verbose_name=_("Type"), on_delete=models.SET_NULL, null=True
+    )
     translations = TranslatedFields(
         name=models.CharField(_("Organization Name"), max_length=100)
     )

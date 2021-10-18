@@ -52,6 +52,7 @@ class OrganizationTypeAdmin(TranslatableAdmin):
 
 
 class OrganizationAdmin(TranslatableAdmin):
+    list_display = ["name", "type"]
     search_fields = ["type", "name"]
     autocomplete_fields = ["type"]
     list_filter = ["type"]
@@ -88,6 +89,7 @@ class RewardTypeAdmin(TranslatableAdmin):
 
 
 class RewardAdmin(TranslatableAdmin):
+    list_display = ["employee", "name", "type", "issued_by", "date_of_issue"]
     search_fields = ["employee", "name", "description", "type", "issued_by"]
     autocomplete_fields = ["employee", "type", "issued_by"]
     inlines = [RewardFileAdmin]
