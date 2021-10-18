@@ -69,9 +69,13 @@ class Reward(TranslatableModel):
         description=models.TextField(_("Description"), null=True, blank=True),
     )
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
-    type = models.ForeignKey(RewardType, on_delete=models.SET_NULL, null=True)
-    issued_by = models.ForeignKey(Organization, on_delete=models.SET_NULL, null=True)
-    date_of_issue = models.DateField()
+    type = models.ForeignKey(
+        RewardType, verbose_name=_("Type"), on_delete=models.SET_NULL, null=True
+    )
+    issued_by = models.ForeignKey(
+        Organization, verbose_name=_("Issued By"), on_delete=models.SET_NULL, null=True
+    )
+    date_of_issue = models.DateField(_("Date Of Issue"))
 
     def __str__(self):
         return f"{self.type} of {self.employee}"
