@@ -12,6 +12,10 @@ from .models import (
 
 
 class EmployeeAdmin(TranslatableAdmin):
+    list_display = ["__str__", "gender", "birthday", "image_tag"]
+    readonly_fields = ["image_tag"]
+    search_fields = ["last_name", "first_name", "middle_name", "birthday"]
+    list_filter = ["gender"]
     fieldsets = (
         (
             _("Nontranslated fields"),
@@ -36,6 +40,7 @@ class EmployeeAdmin(TranslatableAdmin):
 
 
 class OrganizationTypeAdmin(TranslatableAdmin):
+    search_fields = ["translations__name"]
     fieldsets = (
         (
             _("Translated Fields"),
@@ -47,6 +52,9 @@ class OrganizationTypeAdmin(TranslatableAdmin):
 
 
 class OrganizationAdmin(TranslatableAdmin):
+    search_fields = ["type", "name"]
+    autocomplete_fields = ["type"]
+    list_filter = ["type"]
     fieldsets = (
         (
             _("Nontranslated fields"),
@@ -68,6 +76,7 @@ class RewardFileAdmin(TranslatableStackedInline):
 
 
 class RewardTypeAdmin(TranslatableAdmin):
+    search_fields = ["translations__name"]
     fieldsets = (
         (
             _("Translated Fields"),
@@ -79,7 +88,10 @@ class RewardTypeAdmin(TranslatableAdmin):
 
 
 class RewardAdmin(TranslatableAdmin):
+    search_fields = ["employee", "name", "description", "type", "issued_by"]
+    autocomplete_fields = ["employee", "type", "issued_by"]
     inlines = [RewardFileAdmin]
+    list_filter = ["type"]
     fieldsets = (
         (
             _("Nontranslated fields"),
