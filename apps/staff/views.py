@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.utils.translation import templatize
 from django.views.generic import ListView, DetailView
 from .models import Employee, GENDER_CHOICES, Reward
 from django.db.models import Q
@@ -42,3 +43,9 @@ class EmployeeDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context["rewards"] = self.get_object().reward_set.all()
         return context
+
+
+class EmployeeBiographyView(DetailView):
+    model = Employee
+    template_name = "staff/biography.html"
+    context_object_name = "employee"

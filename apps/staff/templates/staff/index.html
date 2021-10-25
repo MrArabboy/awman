@@ -57,7 +57,7 @@
     {% for employee in employees %}
         <tr  class="clickable-row" data-href="{% url 'detail' employee.id %}">
         <th scope="row">{{ page_obj.start_index|add:forloop.counter0}}</th>
-        <td>{{ employee.full_name }}</td>
+        <td><a href="{% url "biography" employee.id %}">{{ employee.full_name }}</a></td>
         <td>{{ employee.get_gender_display }}</td>
         <td>{{ employee.birthday }}</td>
         <td><a href="{{employee.photo.url}}">{{employee.image_tag}}</a></td>
