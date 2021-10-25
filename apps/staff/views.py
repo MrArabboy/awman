@@ -8,6 +8,7 @@ class EmployeeListView(ListView):
     model = Employee
     context_object_name = "employees"
     template_name = "staff/index.html"
+    paginate_by = 10
 
     def get_queryset(self):
         queryset = self.model.objects.all()
