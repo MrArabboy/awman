@@ -5,13 +5,14 @@ from parler.models import TranslatableModel, TranslatedFields
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils.translation import ugettext_lazy as _
 
+GENDER_CHOICES = (("male", _("Male")), ("female", _("Female")))
+
 
 class Employee(TranslatableModel):
     class Meta:
         verbose_name = _("Employee")
         verbose_name_plural = _("Employees")
 
-    GENDER_CHOICES = (("male", _("Male")), ("female", _("Female")))
     first_name = models.CharField(_("First Name"), max_length=50)
     last_name = models.CharField(_("Last Name"), max_length=50)
     middle_name = models.CharField(_("Middle Name"), max_length=50)
@@ -27,6 +28,10 @@ class Employee(TranslatableModel):
         return mark_safe('<img src="{}" height="50"/>'.format(self.photo.url))
 
     image_tag.short_description = "Image"
+
+    @property
+    def full_name(self):
+        return f"{self.last_name} {self.first_name} {self.middle_name}"
 
 
 class OrganizationType(TranslatableModel):

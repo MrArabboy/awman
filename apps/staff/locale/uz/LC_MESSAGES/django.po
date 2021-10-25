@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-18 11:57+0500\n"
+"POT-Creation-Date: 2021-10-25 10:42+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,122 +31,132 @@ msgstr "Tarjima qilinadigan maydonlar"
 msgid "Staff"
 msgstr "Xodimlar"
 
-#: .\models.py:11 .\models.py:80
-msgid "Employee"
-msgstr "Xodim"
-
-#: .\models.py:12
-msgid "Employees"
-msgstr "Xodimlar"
-
-#: .\models.py:14
+#: .\models.py:8
 msgid "Male"
 msgstr "Erkak"
 
-#: .\models.py:14
+#: .\models.py:8
 msgid "Female"
 msgstr "Ayol"
 
-#: .\models.py:15
+#: .\models.py:13 .\models.py:85
+msgid "Employee"
+msgstr "Xodim"
+
+#: .\models.py:14
+msgid "Employees"
+msgstr "Xodimlar"
+
+#: .\models.py:16
 msgid "First Name"
 msgstr "Ismi"
 
-#: .\models.py:16
+#: .\models.py:17
 msgid "Last Name"
 msgstr "Familyasi"
 
-#: .\models.py:17
+#: .\models.py:18
 msgid "Middle Name"
 msgstr "Sharifi"
 
-#: .\models.py:18
+#: .\models.py:19 .\templates\staff\index.html:54
 msgid "Photo"
 msgstr "Rasmi"
 
-#: .\models.py:19
+#: .\models.py:20 .\templates\staff\index.html:53
 msgid "Birthday"
 msgstr "Tug'ilgan kuni"
 
-#: .\models.py:20
+#: .\models.py:21 .\templates\staff\index.html:35
+#: .\templates\staff\index.html:52
 msgid "Gender"
 msgstr "Jinsi"
 
-#: .\models.py:21
+#: .\models.py:22
 msgid "Biography"
 msgstr "Biografiyasi"
 
-#: .\models.py:34
+#: .\models.py:39
 msgid "Organization Type"
 msgstr "Tashkilot turi"
 
-#: .\models.py:35
+#: .\models.py:40
 msgid "Organization Types"
 msgstr "Tashkilot turlari"
 
-#: .\models.py:37 .\models.py:64
+#: .\models.py:42 .\models.py:69
 msgid "Name"
 msgstr "Nomi"
 
-#: .\models.py:45
+#: .\models.py:50
 msgid "Organization"
 msgstr "Tashkilot"
 
-#: .\models.py:46
+#: .\models.py:51
 msgid "Organizations"
 msgstr "Tashkilotlar"
 
-#: .\models.py:49 .\models.py:83
+#: .\models.py:54 .\models.py:88 .\templates\staff\employee_detail.html:12
 msgid "Type"
 msgstr "Turi"
 
-#: .\models.py:52
+#: .\models.py:57
 msgid "Organization Name"
 msgstr "Tashkilot nomi"
 
-#: .\models.py:61
+#: .\models.py:66
 msgid "Reward Type"
 msgstr "Mukofot turi"
 
-#: .\models.py:62
+#: .\models.py:67
 msgid "Reward Types"
 msgstr "Mukofot turlari"
 
-#: .\models.py:72 .\models.py:104
+#: .\models.py:77 .\models.py:109
 msgid "Reward"
 msgstr "Mukofot"
 
-#: .\models.py:73
+#: .\models.py:78
 msgid "Rewards"
 msgstr "Mukofotlar"
 
-#: .\models.py:76
+#: .\models.py:81 .\templates\staff\employee_detail.html:11
 msgid "Reward Name"
 msgstr "Mukofot nomi"
 
-#: .\models.py:77
+#: .\models.py:82 .\templates\staff\employee_detail.html:15
 msgid "Description"
 msgstr "Qaydlar"
 
-#: .\models.py:86
+#: .\models.py:91 .\templates\staff\employee_detail.html:13
 msgid "Issued By"
 msgstr "Kim tomonidan berilgan"
 
-#: .\models.py:88
+#: .\models.py:93 .\templates\staff\employee_detail.html:14
 msgid "Date Of Issue"
 msgstr "Berilgan Sanasi"
 
-#: .\models.py:96
+#: .\models.py:101
 msgid "Reward File"
 msgstr "Mukofot fayli"
 
-#: .\models.py:97
+#: .\models.py:102 .\templates\staff\employee_detail.html:16
 msgid "Reward Files"
 msgstr "Mukofot fayllari"
 
-#: .\models.py:100
+#: .\models.py:105
 msgid "File Name"
 msgstr "Fayl nomi"
 
-#: .\models.py:109
+#: .\models.py:114
 msgid "File"
 msgstr "Fayl"
+
+#: .\templates\staff\index.html:51
+msgid "Full name"
+msgstr "FIO"
+
+#, fuzzy
+#~| msgid "Gender"
+#~ msgid "Gender:"
+#~ msgstr "Jinsi"

@@ -1,0 +1,90 @@
+{% extends 'staff/base.html' %}
+{% block content %}
+{% load i18n %}
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<style>
+    .table tbody tr:hover{
+    background-color:#e1ebf2;
+    border: 2px solid rgb(140, 151, 150);
+}
+</style>
+<form action="{% url 'set_language' %}" method="post" style="display:inline">{% csrf_token %}
+    <input name="next" type="hidden" value="{{ redirect_to }}">
+    <select name="language" onchange="this.form.submit()">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% for language in languages %}
+            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                {{ language.name_translated }}
+            </option>
+        {% endfor %}
+    </select>
+</form>
+
+<form method="GET" style="display:inline;margin-left:30%">
+  <input type="search" name="search" value="{{request.GET.search}}" id="tags" placeholder="search" style="width:500px">
+  <input type="submit" value="search" style="background-color:green">
+</form>
+
+<form method="GET" style="display:inline;float:right;margin:0 20px">
+    
+{% trans "Gender"%}:
+    <select name="gender" onchange="this.form.submit()">
+      <option selected></option>
+        {% for gender in genders %}
+        <h1>{{ gender.0 }}</h1>
+            <option value="{{gender.0}}" {% if request.GET.gender == gender.0 %} selected {%endif%}>
+                {{ gender.1 }}
+            </option>
+        {% endfor %}
+    </select>
+</form>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">{% trans "Full name"%}</th>
+      <th scope="col">{% trans "Gender"%}</th>
+      <th scope="col">{% trans "Birthday"%}</th>
+      <th scope="col">{% trans "Photo"%}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for employee in employees %}
+        <tr  class="clickable-row" data-href="{% url 'detail' employee.id %}">
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ employee.full_name }}</td>
+        <td>{{ employee.get_gender_display }}</td>
+        <td>{{ employee.birthday }}</td>
+        <td>{{employee.image_tag}}</td>
+        </tr>
+   
+    {% endfor %}
+  </tbody>
+</table>
+
+ <script>
+  $( function() {
+    var availableTags = [
+        {% for employee in employees %}
+            "{{employee.full_name}}",
+        {% endfor %}
+    ];
+    $("#tags").autocomplete({
+      source: availableTags
+    });
+  } );
+
+  $(document).ready(function($) {
+      $(".clickable-row").click(function() {
+          window.location = $(this).data("href");
+      });
+      
+  });
+  </script>
+{% endblock content %}

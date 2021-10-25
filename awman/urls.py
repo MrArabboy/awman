@@ -18,10 +18,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
 
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("i18n/", include("django.conf.urls.i18n")),
     path("ckeditor/", include("ckeditor_uploader.urls")),
+    path("", include("apps.staff.urls")),
 ]
 
 if settings.DEBUG:
