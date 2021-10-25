@@ -60,7 +60,7 @@
         <td>{{ employee.full_name }}</td>
         <td>{{ employee.get_gender_display }}</td>
         <td>{{ employee.birthday }}</td>
-        <td>{{employee.image_tag}}</td>
+        <td><a href="{{employee.photo.url}}">{{employee.image_tag}}</a></td>
         </tr>
    
     {% endfor %}
