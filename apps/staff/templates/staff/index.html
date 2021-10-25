@@ -50,6 +50,7 @@
       <th scope="col">{% trans "Full name"%}</th>
       <th scope="col">{% trans "Gender"%}</th>
       <th scope="col">{% trans "Birthday"%}</th>
+      <th scope="col">{% trans "Biography"%}</th>
       <th scope="col">{% trans "Photo"%}</th>
     </tr>
   </thead>
@@ -57,9 +58,10 @@
     {% for employee in employees %}
         <tr  class="clickable-row" data-href="{% url 'detail' employee.id %}">
         <th scope="row">{{ page_obj.start_index|add:forloop.counter0}}</th>
-        <td><a href="{% url "biography" employee.id %}">{{ employee.full_name }}</a></td>
+        <td>{{ employee.full_name }}</td>
         <td>{{ employee.get_gender_display }}</td>
         <td>{{ employee.birthday }}</td>
+        <td><a href="{% url "biography" employee.id %}">{% trans "Biography"%}</a></td>
         <td><a href="{{employee.photo.url}}">{{employee.image_tag}}</a></td>
         </tr>
    
