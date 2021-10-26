@@ -4,34 +4,9 @@ from django.utils.safestring import mark_safe
 from parler.models import TranslatableModel, TranslatedFields
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils.translation import ugettext_lazy as _
+from smart_selects.db_fields import ChainedForeignKey
 
 GENDER_CHOICES = (("male", _("Male")), ("female", _("Female")))
-
-
-class Employee(TranslatableModel):
-    class Meta:
-        verbose_name = _("Employee")
-        verbose_name_plural = _("Employees")
-
-    first_name = models.CharField(_("First Name"), max_length=50)
-    last_name = models.CharField(_("Last Name"), max_length=50)
-    middle_name = models.CharField(_("Middle Name"), max_length=50)
-    photo = models.ImageField(_("Photo"), upload_to="employee_images/")
-    birthday = models.DateField(_("Birthday"))
-    gender = models.CharField(_("Gender"), choices=GENDER_CHOICES, max_length=20)
-    translations = TranslatedFields(biography=RichTextUploadingField(_("Biography")))
-
-    def __str__(self):
-        return f"{self.last_name} {self.first_name} {self.middle_name}"
-
-    def image_tag(self):
-        return mark_safe('<img src="{}" height="50"/>'.format(self.photo.url))
-
-    image_tag.short_description = "Image"
-
-    @property
-    def full_name(self):
-        return f"{self.last_name} {self.first_name} {self.middle_name}"
 
 
 class OrganizationType(TranslatableModel):
@@ -61,6 +36,78 @@ class Organization(TranslatableModel):
         return self.name
 
 
+class Position(TranslatableModel):
+    organization = models.ForeignKey(
+        Organization,
+        verbose_name=_("Organization"),
+        on_delete=models.SET_NULL,
+        null=True,
+    )
+    translations = TranslatedFields(
+        name=models.CharField(_("Position"), max_length=100)
+    )
+
+    def __str__(self):
+        return self.name + " in " + self.organization.name
+
+
+class Nationality(TranslatableModel):
+    class Meta:
+        verbose_name = _("Nationality")
+        verbose_name_plural = _("Nationalities")
+
+    translations = TranslatedFields(
+        nation=models.CharField(_("Nationality"), max_length=30)
+    )
+
+    def __str__(self):
+        return self.nation
+
+
+class Employee(TranslatableModel):
+    class Meta:
+        verbose_name = _("Employee")
+        verbose_name_plural = _("Employees")
+
+    first_name = models.CharField(_("First Name"), max_length=50)
+    last_name = models.CharField(_("Last Name"), max_length=50)
+    middle_name = models.CharField(_("Middle Name"), max_length=50)
+    nationality = models.ForeignKey(
+        Nationality, verbose_name=_("Nationality"), on_delete=models.SET_NULL, null=True
+    )
+    organization = models.ForeignKey(
+        Organization,
+        verbose_name=_("Organization"),
+        on_delete=models.SET_NULL,
+        null=True,
+    )
+    position = ChainedForeignKey(
+        Position,
+        chained_field="organization",
+        chained_model_field="organization",
+        auto_choose=True,
+        sort=True,
+        verbose_name=_("Position"),
+        null=True,
+    )
+    photo = models.ImageField(_("Photo"), upload_to="employee_images/")
+    birthday = models.DateField(_("Birthday"))
+    gender = models.CharField(_("Gender"), choices=GENDER_CHOICES, max_length=20)
+    translations = TranslatedFields(biography=RichTextUploadingField(_("Biography")))
+
+    def __str__(self):
+        return f"{self.last_name} {self.first_name} {self.middle_name}"
+
+    def image_tag(self):
+        return mark_safe('<img src="{}" height="50"/>'.format(self.photo.url))
+
+    image_tag.short_description = "Image"
+
+    @property
+    def full_name(self):
+        return f"{self.last_name} {self.first_name} {self.middle_name}"
+
+
 class RewardType(TranslatableModel):
     class Meta:
         verbose_name = _("Reward Type")
@@ -87,6 +134,7 @@ class Reward(TranslatableModel):
     type = models.ForeignKey(
         RewardType, verbose_name=_("Type"), on_delete=models.SET_NULL, null=True
     )
+    image = models.ImageField(upload_to="reward_images/", null=True)
     issued_by = models.ForeignKey(
         Organization, verbose_name=_("Issued By"), on_delete=models.SET_NULL, null=True
     )

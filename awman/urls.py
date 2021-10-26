@@ -24,6 +24,7 @@ urlpatterns = [
     path("i18n/", include("django.conf.urls.i18n")),
     path("ckeditor/", include("ckeditor_uploader.urls")),
     path("", include("apps.staff.urls")),
+    path("chaining/", include("smart_selects.urls")),
 ]
 
 if settings.DEBUG:

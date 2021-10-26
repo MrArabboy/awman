@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "parler",
     "ckeditor",
     "ckeditor_uploader",
+    "smart_selects",
     # Custom apps
     "apps.staff",
 ]
@@ -186,3 +187,8 @@ CKEDITOR_CONFIGS = {
 }
 
 ###################################
+
+
+### Smart-selects configuration ####
+USE_DJANGO_JQUERY = True
+######################################

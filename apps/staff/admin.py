@@ -5,6 +5,8 @@ from .models import (
     Employee,
     Organization,
     OrganizationType,
+    Position,
+    Nationality,
     RewardType,
     Reward,
     RewardFile,
@@ -25,6 +27,9 @@ class EmployeeAdmin(TranslatableAdmin):
                     "last_name",
                     "middle_name",
                     "gender",
+                    "nationality",
+                    "organization",
+                    "position",
                     "photo",
                     "birthday",
                 ),
@@ -72,6 +77,34 @@ class OrganizationAdmin(TranslatableAdmin):
     )
 
 
+class NationalityAdmin(TranslatableAdmin):
+    fieldsets = (
+        (
+            _("Translated Fields"),
+            {
+                "fields": ("nation",),
+            },
+        ),
+    )
+
+
+class PositionAdmin(TranslatableAdmin):
+    fieldsets = (
+        (
+            _("Nontranslated fields"),
+            {
+                "fields": ("organization",),
+            },
+        ),
+        (
+            _("Translated Fields"),
+            {
+                "fields": ("name",),
+            },
+        ),
+    )
+
+
 class RewardFileAdmin(TranslatableStackedInline):
     model = RewardFile
 
@@ -98,7 +131,7 @@ class RewardAdmin(TranslatableAdmin):
         (
             _("Nontranslated fields"),
             {
-                "fields": ("employee", "type", "issued_by", "date_of_issue"),
+                "fields": ("employee", "type", "image", "issued_by", "date_of_issue"),
             },
         ),
         (
@@ -135,4 +168,5 @@ admin.site.register(OrganizationType, OrganizationTypeAdmin)
 admin.site.register(Organization, OrganizationAdmin)
 admin.site.register(RewardType, RewardTypeAdmin)
 admin.site.register(Reward, RewardAdmin)
-# admin.site.register(RewardFile, RewardFileAdmin2)
+admin.site.register(Position, PositionAdmin)
+admin.site.register(Nationality, NationalityAdmin)
