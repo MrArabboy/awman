@@ -1,5 +1,7 @@
 {% extends 'staff/base.html' %}
 {% load i18n %}
 {% block content %}
-    {{employee.biography|safe}}
+   <div style="margin:20px 30px">
+     {{employee.biography|safe}}
+   </div>
 {% endblock content %}
