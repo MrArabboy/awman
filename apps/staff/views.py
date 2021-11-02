@@ -3,6 +3,7 @@ from django.utils.translation import templatize
 from django.views.generic import ListView, DetailView
 from .models import Employee, GENDER_CHOICES, Reward
 from django.db.models import Q
+from django.contrib.admin.models import LogEntry, ADDITION, CHANGE, DELETION
 
 
 class EmployeeListView(ListView):
@@ -49,3 +50,17 @@ class EmployeeBiographyView(DetailView):
     model = Employee
     template_name = "staff/biography.html"
     context_object_name = "employee"
+
+
+def main(request):
+
+    logs = LogEntry.objects.exclude(change_message="No fields changed.").order_by(
+        "-action_time"
+    )[:20]
+    logCount = (
+        LogEntry.objects.exclude(change_message="No fields changed.")
+        .order_by("-action_time")[:20]
+        .count()
+    )
+
+    return render(request, "staff/main.html", {"logs": logs, "logCount": logCount})
