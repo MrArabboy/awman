@@ -10,8 +10,10 @@
         </div>
         <div class="person-show__main-infomations">
             <h1 class="person-show__fullname">{{employee.full_name}}</h1>
-            <h3 class="person-show__position">{{employee.position.name}}</h3>
-            <p class="person-show__short-info">{{employee.birthday.year}}-yilda tug'ilgan. {% trans "Nationality"%}:{{employee.nationality.nation}}.</p>
+            <h3 class="person-show__position">{% trans 'Organization' %}:{{employee.organization.name}}</h3>
+            <h3 class="person-show__position">{% trans 'Position' %}:{{employee.position.name}}</h3>
+            <p class="person-show__short-info">{% trans "Birthday" %}:{{employee.birthday}}.</p>
+            <p class="person-show__short-info">{% trans "Nationality"%}:{{employee.nationality.nation}}. </p>
             <div class="person-show__rating">
                 {% for reward in rewards %}
                     <span class="star"><img src="{% static 'staff/img/Star.png' %}" alt="" srcset=""></span>
