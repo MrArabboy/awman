@@ -140,6 +140,13 @@ class Reward(TranslatableModel):
     )
     date_of_issue = models.DateField(_("Date Of Issue"))
 
+    @property
+    def imageUrl(self):
+        if self.image:
+            return self.image.url
+        else:
+            return ""
+
     def __str__(self):
         return f"{self.type} of {self.employee}"
 

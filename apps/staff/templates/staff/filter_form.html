@@ -22,13 +22,13 @@
                         {% trans "clear"%}
                     </div>
                 </div>
-                {% for organization in organizations %}
+                {% for org_type in organization_types %}
                     <div class="sidebar__searching-block-row">
                         <div class="sidebar__label">
-                            {{organization.name}}
+                            {{org_type.name}}
                         </div>
                         <label class="checkbox-container">
-                            <input type="checkbox" name="organization" value="{{organization.name}}" {% if organization.name in request.GET|get_list:"organization" %} checked {% endif %} />
+                            <input type="checkbox" name="org_type" value="{{org_type.name}}" {% if org_type.name in request.GET|get_list:"org_type" %} checked {% endif %} />
                             <span class="checkmark"></span>
                         </label>
                     </div>

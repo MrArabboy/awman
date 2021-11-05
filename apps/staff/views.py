@@ -24,6 +24,7 @@ class EmployeeListView(ListView):
         gender = self.request.GET.getlist("gender", None)
         reward_type = self.request.GET.getlist("reward_type", None)
         organization = self.request.GET.getlist("organization", None)
+        org_type = self.request.GET.getlist("org_type", None)
         min_year = self.request.GET.get("min_year", None)
         max_year = self.request.GET.get("max_year", None)
 
@@ -42,9 +43,9 @@ class EmployeeListView(ListView):
         if gender:
             queryset = queryset.filter(gender__in=gender)
 
-        if organization:
+        if org_type:
             queryset = queryset.filter(
-                reward__issued_by__translations__name__in=organization
+                reward__issued_by__type__translations__name__in=org_type
             )
         if reward_type:
             queryset = queryset.filter(
