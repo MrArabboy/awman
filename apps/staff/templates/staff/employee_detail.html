@@ -13,7 +13,7 @@
             <!-- <h3 class="person-show__position">{% trans 'Organization' %}:{{employee.organization.name}}</h3>
             <h3 class="person-show__position">{% trans 'Position' %}:{{employee.position.name}}</h3> -->
             <p class="person-show__short-info">{{employee.position.name}}-{{employee.organization.name}}.</p>
-            <p class="person-show__short-info">{% trans "Birthday" %}:{{employee.birthday|date:"d.m.Y"}}.</p>
+            <p class="person-show__short-info">{% trans "Birthday" %} : {{employee.birthday|date:"d.m.Y"}}.</p>
             <p class="person-show__short-info">{% trans "Nationality"%}:{{employee.nationality.nation}}. </p>
             <div class="person-show__rating">
                 {% for reward in rewards %}
