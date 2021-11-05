@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+
+.container {
+    // max-width: 1170px;
+    max-width: 1440px;
+    margin: auto;
+}
+
+
+
+@media (max-width: 1199px) {
+    .container {
+        max-width: 960px;
+    }
+}
+@media (max-width: 991px) {
+    .container {
+        max-width: 760px;
+    }
+}
+@media (max-width: 767px) {
+    .container {
+        max-width: 100%;
+        padding: 0 30px;
+    }
+}

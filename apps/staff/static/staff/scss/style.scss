@@ -1,0 +1,24 @@
+// Базовые настройки сетки
+@import "grid";
+
+// Настройка шрифтов
+@import "fonts";
+
+// Настройка интерфейса
+@import "interface";
+
+//blocks
+@import "blocks/header";
+@import "blocks/footer";
+@import "blocks/sidebar";
+@import "blocks/searching";
+@import "blocks/pagination";
+
+@import url(/icons/remixicon.css);
+
+// pages 
+@import "pages/person-list";
+@import "pages/person-show";
+
+// Настройка цветов
+// @import "colors";

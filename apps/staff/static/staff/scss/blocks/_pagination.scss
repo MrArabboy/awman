@@ -1,0 +1,38 @@
+.pagination {
+    margin-top: 50px;
+    .pagination-wrap {
+        display: flex;
+        justify-content: space-between;
+        width: 256px;
+        margin: 0 auto;
+        .numbers {
+            display: flex;
+            justify-content: space-around;
+            width: 120px;
+            span {
+                color: #969696;
+                text-align: center;
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 25px;
+                cursor: pointer;
+                &.active {
+                    cursor: default;
+                    width: 25px;
+                    height: 25px;
+                    color: #fff;
+                    background-color: #29558e;
+                    border-radius: 50%;
+                }
+            }
+        }
+        .arrow {
+            color: #969696;
+            text-align: center;
+            font-weight: 400;
+            font-size: 30px;
+            line-height: 24px;
+            cursor: pointer;
+        }
+    }
+}

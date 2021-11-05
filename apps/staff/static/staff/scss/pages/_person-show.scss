@@ -1,0 +1,64 @@
+.person-show {
+    display: flex;
+    .person-show__wrapper {
+        width: 100%;
+        .person-show__row {
+            display: flex;
+            margin-bottom: 50px;
+            .person-show__image {
+                margin-right: 45px;
+                img {
+                    height: 280px;
+                    width: 200px;
+                }
+            }
+
+            h1.person-show__fullname {
+                font-size: 36px;
+                line-height: 44px;
+                margin: 0;
+            }
+            h3.person-show__position {
+                font-weight: 500;
+                font-size: 24px;
+                line-height: 29px;
+                margin: 5px 0;
+            }
+            p.person-show__short-info {
+                margin: 10px 0;
+                font-size: 16px;
+                line-height: 20px;
+            }
+
+            .person-show__rating {
+                margin-top: 37px;
+                .star {
+                    padding-right: 19px;
+                    img {
+                        width: 100px;
+                        height: 100px;
+                    }
+                    &:last-child {
+                        padding-right: 0;
+                    }
+                }
+            }
+
+            .person-show__biography-caption {
+                width: 200px;
+                margin-right: 45px;
+                text-align: right;
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 22px;
+                flex: none;
+            }
+            pre.person-show__biography {
+                margin: 0;
+                font-size: 16px;
+                line-height: 20px;
+                white-space: pre-wrap;
+            }
+        }
+    }
+}

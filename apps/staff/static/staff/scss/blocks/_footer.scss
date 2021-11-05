@@ -1,0 +1,48 @@
+footer {
+    // height: 400px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    .footer__sub-footer {
+        height: 70px;
+        background-color: #5477a4;
+        .footer__sub-footer-wrap {
+            display: flex;
+            justify-content: space-between;
+            padding: 23px 0;
+            .footer__sub-footer_t-year {
+                font-size: 14px;
+                line-height: 24px;
+                color: #D9DBE1;
+                font-family: 'Inter', sans-serif;
+            }
+            .footer__social-medias {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 144px;
+                .social-media {
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                    background-color: #F9F8F91a;
+                    text-align: center;
+                    &:before {
+                        line-height: 24px;
+                        color: #fff;
+                        font-size: 13px;
+                    }
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.lang-item {
+    color: #000 !important;
+    text-transform: unset !important;
+  }
+  
