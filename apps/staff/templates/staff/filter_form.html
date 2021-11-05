@@ -1,0 +1,111 @@
+{% load i18n %}
+{% load get_list_filter %}
+<form action="{% url 'employees' %}" method="get" id="filter_form">
+    <aside class="sidebar">
+        <div class="sidebar__header">
+            <div class="sidebar__caption">
+                {% trans "Advanced Search" %}
+            </div>
+            <a href="{% url 'employees' %}">
+                <div class="sidebar__clear">
+                {% trans "clear all"%}
+                </div>
+            </a> 
+        </div>
+        <div class="sidebar__searching-blocks">
+            <div class="sidebar__searching-block">
+                <div class="sidebar__searching-block-row">
+                    <div class="sidebar__caption">
+                        {% trans "Organizations"%}
+                    </div>
+                    <div class="sidebar__clear" onclick="clearOrganizations()">
+                        {% trans "clear"%}
+                    </div>
+                </div>
+                {% for organization in organizations %}
+                    <div class="sidebar__searching-block-row">
+                        <div class="sidebar__label">
+                            {{organization.name}}
+                        </div>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="organization" value="{{organization.name}}" {% if organization.name in request.GET|get_list:"organization" %} checked {% endif %} />
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                {% endfor %}  
+            </div>
+            <div class="sidebar__searching-block">
+                <div class="sidebar__searching-block-row">
+                    <div class="sidebar__caption">
+                        {% trans "Issued Date"%}
+                    </div>
+                    <div class="sidebar__clear">
+                        {% trans "clear"%}
+                    </div>
+                </div>
+                <div class="range-input">
+                    <input type="hidden" id="min_year" name="min_year" value="{{request.GET.min_year}}">
+                    <input type="hidden" id="max_year" name="max_year" value="{{request.GET.max_year}}">
+                    <div class="dual-range" data-min="1991" data-max="2021">
+                        <span class="handle left" id="minimum_date"></span>
+                        <span class="highlight" ></span>
+                        <span class="handle right" id="maximum_date"></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="sidebar__searching-block">
+                <div class="sidebar__searching-block-row">
+                    <div class="sidebar__caption">
+                        {% trans "Reward Type"%}
+                    </div>
+                    <div class="sidebar__clear" onclick="clearRewardTypes()">
+                        {% trans "clear" %}
+                    </div>
+                </div>
+                {% for reward_type in reward_types  %}
+                    <div class="sidebar__searching-block-row">
+                        <div class="sidebar__label">
+                            {{reward_type.name}}
+                        </div>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="reward_type" value="{{reward_type.name}}" {% if reward_type.name in request.GET|get_list:"reward_type" %}checked{% endif %} />
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="sidebar__searching-block">
+                <div class="sidebar__searching-block-row">
+                    <div class="sidebar__caption">
+                        {% trans "Gender" %}
+                    </div>
+                    <div class="sidebar__clear">
+                        {% trans "clear" %}
+                    </div>
+                </div>
+                <div class="sidebar__searching-block-row">
+                    <div class="sidebar__label">
+                        {% trans "Male" %}
+                    </div>
+                    <label class="checkbox-container">
+                        <input type="checkbox" name="gender" value="male" {% if "male" in request.GET|get_list:"gender" %}checked{% endif %} />
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="sidebar__searching-block-row">
+                    <div class="sidebar__label">
+                        {% trans "Female" %}
+                    </div>
+                    <label class="checkbox-container">
+                        <input type="checkbox" name="gender" value="female" {% if "female" in request.GET|get_list:"gender" %}checked{% endif %}/>
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar__footer">
+            <button type="submit" class="sidebar__footer-btn">{% trans "Submit" %}</button>
+        </div>
+    </aside>
+</form>

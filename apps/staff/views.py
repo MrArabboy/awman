@@ -1,34 +1,61 @@
 from django.shortcuts import render
+from django.template import RequestContext
 from django.utils.translation import templatize
 from django.views.generic import ListView, DetailView
-from .models import Employee, GENDER_CHOICES, Reward
+from .models import Employee, GENDER_CHOICES, Reward, RewardType
 from django.db.models import Q
-from django.contrib.admin.models import LogEntry, ADDITION, CHANGE, DELETION
+from django.http import JsonResponse
+
+
+def handler404(request, exception):
+    response = render(request, "staff/404.html", status=404)
+    return response
 
 
 class EmployeeListView(ListView):
     model = Employee
     context_object_name = "employees"
-    template_name = "staff/index.html"
+    template_name = "staff/employees.html"
     paginate_by = 10
 
     def get_queryset(self):
         queryset = self.model.objects.all()
-        gender = self.request.GET.get("gender", None)
-        awarded = self.request.GET.get("awarded", None)
         search = self.request.GET.get("search", None)
-        filters = []
+        gender = self.request.GET.getlist("gender", None)
+        reward_type = self.request.GET.getlist("reward_type", None)
+        organization = self.request.GET.getlist("organization", None)
+        min_year = self.request.GET.get("min_year", None)
+        max_year = self.request.GET.get("max_year", None)
+
         if search:
+            obj_ids = [
+                obj.id for obj in self.model.objects.all() if search in obj.full_name
+            ]
+
             queryset = queryset.filter(
-                Q(first_name__contains=search)
+                Q(id__in=obj_ids)
+                | Q(first_name__contains=search)
                 | Q(last_name__contains=search)
-                | Q(middle_name__contains=search)
+                | Q(middle_name__contains=search),
             )
 
-        if gender or awarded:
-            return queryset.filter(gender=gender)
-        else:
-            return queryset
+        if gender:
+            queryset = queryset.filter(gender__in=gender)
+
+        if organization:
+            queryset = queryset.filter(
+                reward__issued_by__translations__name__in=organization
+            )
+        if reward_type:
+            queryset = queryset.filter(
+                reward__type__translations__name__in=reward_type
+            ).distinct()
+
+        if min_year and max_year:
+            queryset = queryset.filter(
+                reward__date_of_issue__year__range=[min_year, max_year]
+            ).distinct()
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -52,15 +79,19 @@ class EmployeeBiographyView(DetailView):
     context_object_name = "employee"
 
 
-def main(request):
+def search_autocomplete(request):
+    value = request.GET.get("search", None)
+    queryset = Employee.objects.all()
+    if value:
+        obj_ids = [obj.id for obj in queryset if value in obj.full_name]
+        queryset = queryset.filter(
+            Q(id__in=obj_ids)
+            | Q(first_name__contains=value)
+            | Q(last_name__contains=value)
+            | Q(middle_name__contains=value),
+        )
+        result = [q.full_name for q in queryset]
+    else:
+        result = []
 
-    logs = LogEntry.objects.exclude(change_message="No fields changed.").order_by(
-        "-action_time"
-    )[:20]
-    logCount = (
-        LogEntry.objects.exclude(change_message="No fields changed.")
-        .order_by("-action_time")[:20]
-        .count()
-    )
-
-    return render(request, "staff/main.html", {"logs": logs, "logCount": logCount})
+    return JsonResponse({"employees": result})

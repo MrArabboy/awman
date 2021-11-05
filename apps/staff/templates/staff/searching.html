@@ -1,0 +1,14 @@
+{% load static %}
+{% load i18n %}
+<div class="searching">
+    <div class="searching__form-control">
+        <span class="icon-search ri-search-line"></span>
+            <form id="search_form" action="" method="get" style="width: 100%"> 
+            <input type="text" autocomplete="off" value="{{ request.GET.search }}" name="search" style="width:100%" placeholder="{% trans 'Type to search...' %}" id="searching">
+                <ul class="searching__hinting" id="search_hints">
+            </ul>  
+    </div>
+    <button type="submit" class="btn btn-search">{% trans "Search" %}</button>
+    </form>
+    <script src="{% static 'staff/js/searching.js' %}"></script>
+</div>

@@ -1,36 +1,30 @@
 {% extends 'staff/base.html' %}
+{% load static %}
 {% load i18n %}
 {% block content %}
 
-<h3 style="text-align:center;margin:20px" >{{employee.full_name}}</h3>
-    <table class="table">
-    
-    <thead class="thead-dark">
-        <tr>
-        <th scope="col">#</th>
-        <th scope="col">{% trans "Reward Name" %}</th>
-        <th scope="col">{% trans "Type"%}</th>
-        <th scope="col">{% trans "Issued By"%}</th>
-        <th scope="col">{% trans "Date Of Issue"%}</th>
-        <th scope="col">{% trans "Description"%}</th>
-        <th scope="col">{% trans "Reward Files"%}</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for reward in rewards %}
-            <tr>
-            <th scope="row">{{ forloop.counter }}</th>
-            <td>{{ reward.name }}</td>
-            <td>{{ reward.type }}</td>
-            <td>{{ reward.issued_by }}</td>
-            <td>{{ reward.date_of_issue }}</td>
-            <td>{{ reward.description }}</td>
-            {% for file in reward.files.all %}
-                <td><a href="{{ file.document.url }}">{{file.name}}</a></td>
-            {% endfor %}
-            
-            </tr>
-        {% endfor %}
-    </tbody>
-    </table>
+<div class="person-show__wrapper">
+    <div class="person-show__row">
+        <div class="person-show__image">
+            <img src="{{employee.photo.url}}" alt="">
+        </div>
+        <div class="person-show__main-infomations">
+            <h1 class="person-show__fullname">{{employee.full_name}}</h1>
+            <h3 class="person-show__position">{{employee.position.name}}</h3>
+            <p class="person-show__short-info">{{employee.birthday.year}}-yilda tug'ilgan. {% trans "Nationality"%}:{{employee.nationality.nation}}.</p>
+            <div class="person-show__rating">
+                {% for reward in rewards %}
+                    <span class="star"><img src="{% static 'staff/img/Star.png' %}" alt="" srcset=""></span>
+                {% endfor %}
+               
+            </div>
+        </div>
+    </div>
+    <div class="person-show__row">
+        <div class="person-show__biography-caption">{% trans "Biografiya" %}</div>
+        <pre class="person-show__biography">{{ employee.biography|safe }}
+        </pre>
+    </div>
+</div>
+
 {% endblock content %}

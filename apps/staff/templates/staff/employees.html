@@ -1,0 +1,36 @@
+{% extends 'staff/base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+
+<div class="person-list__wrapper">
+   {% include "staff/searching.html" %}
+   {% if employees %}
+    <div class="person-list__grid">
+        <!-- 1 - 4 -->
+        
+            {% for employee in employees %}
+                <a href="{% url 'detail' employee.id %}" class="person-list__item">
+                    <div class="person-img">
+                                <img src="{{employee.photo.url}}" alt="">
+                    
+                        <span class="person-name">{{ employee.full_name }}</span>
+                    </div>
+                    <div class="person__sub-title">
+                        {{employee.position.name}}
+                    </div>
+                </a>
+            {% endfor %}
+        <!-- 5 - 8 -->
+       
+    </div>
+    {% else %}
+        <h2>{% trans "No employees found" %}</h2>
+    {% endif %}
+    {% include 'staff/pagination.html' %}
+
+</div>
+
+
+{% endblock content %}

@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-&n&w+1!j1^n0n$!zb4m6c^k5+3ho1(wgj3z9cime_)@b7d79t3"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["127.0.0.1", "arabboy3332.pythonanywhere.com"]
 
@@ -71,6 +71,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "apps.staff.context_processor.filter_processor",
             ],
         },
     },
@@ -180,6 +181,10 @@ CKEDITOR_IMAGE_BACKEND = "pillow"
 
 CKEDITOR_CONFIGS = {
     "default": {
+        "enterMode": 2,
+        "enterMode": "CKEDITOR.ENTER.BR",
+        "shiftEnterMode": "CKEDITOR.ENTER_P",
+        "autoParagraph": False,
         "toolbar": "full",
         "height": 700,
         "width": 1500,
