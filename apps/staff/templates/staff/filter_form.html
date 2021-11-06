@@ -39,7 +39,7 @@
                     <div class="sidebar__caption">
                         {% trans "Issued Date"%}
                     </div>
-                    <div class="sidebar__clear">
+                    <div class="sidebar__clear" onclick="clearDateRange()" >
                         {% trans "clear"%}
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                     <div class="sidebar__caption">
                         {% trans "Gender" %}
                     </div>
-                    <div class="sidebar__clear">
+                    <div class="sidebar__clear" onclick="clearGender()">
                         {% trans "clear" %}
                     </div>
                 </div>
@@ -109,3 +109,45 @@
         </div>
     </aside>
 </form>
+ <script>
+        function clearOrganizations(){
+           const filter_form = document.getElementById("filter_form")
+           const org_types = document.getElementsByName("org_type")
+           if(org_types?.length) {
+               org_types.forEach(org_type => {
+                   org_type.checked = false;
+               })
+           }
+           filter_form.submit();
+        }
+       
+        function clearDateRange(){
+           const filter_form = document.getElementById("filter_form")
+           const min_date = document.getElementsByName("min_date")
+           const max_date = document.getElementsByName("max_date")
+            min_date.value = ""
+            filter_form.submit();
+        }
+
+        function clearRewardTypes(){
+           const filter_form = document.getElementById("filter_form")
+           const reward_types = document.getElementsByName("reward_type")
+           if(reward_types?.length) {
+               reward_types.forEach(rew_type => {
+                   rew_type.checked = false;
+               })
+           }
+            filter_form.submit();
+        }
+
+         function clearGender(){
+           const filter_form = document.getElementById("filter_form")
+           const genders = document.getElementsByName("gender")
+           if(genders?.length) {
+               genders.forEach(gender => {
+                   gender.checked = false;
+               })
+           }
+            filter_form.submit();
+        }
+ </script>

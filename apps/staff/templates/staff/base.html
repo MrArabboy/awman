@@ -40,7 +40,7 @@
 
     {% include 'staff/footer.html' %}
     <script src="{% static 'staff/js/slider-range.js' %}"></script>
-    <script>
+    {% comment %} <script>
         function changeLanguage(languageCode) {
             document.cookie = `django_language=${languageCode}; path=/`
             location.reload()
@@ -61,6 +61,6 @@
            }
             filter_form.submit();
         }
-    </script>
+    </script> {% endcomment %}
 </body>
 </html>
