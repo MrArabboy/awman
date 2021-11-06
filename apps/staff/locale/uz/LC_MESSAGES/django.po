@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-05 16:30+0500\n"
+"POT-Creation-Date: 2021-11-06 23:02+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,7 +43,7 @@ msgstr "Ayol"
 msgid "Organization Type"
 msgstr "Tashkilot turi"
 
-#: .\models.py:15
+#: .\models.py:15 .\templates\staff\filter_form.html:19
 msgid "Organization Types"
 msgstr "Tashkilot turlari"
 
@@ -56,7 +56,7 @@ msgstr "Nomi"
 msgid "Organization"
 msgstr "Tashkilot"
 
-#: .\models.py:26 .\templates\staff\filter_form.html:19
+#: .\models.py:26
 msgid "Organizations"
 msgstr "Tashkilotlar"
 
@@ -75,7 +75,7 @@ msgid "Position"
 msgstr "Lavozimi"
 
 #: .\models.py:56 .\models.py:60 .\models.py:76
-#: .\templates\staff\employee_detail.html:16
+#: .\templates\staff\employee_detail.html:17
 msgid "Nationality"
 msgstr "Millati"
 
@@ -107,7 +107,7 @@ msgstr "Sharifi"
 msgid "Photo"
 msgstr "Rasmi"
 
-#: .\models.py:94 .\templates\staff\employee_detail.html:15
+#: .\models.py:94 .\templates\staff\employee_detail.html:16
 msgid "Birthday"
 msgstr "Tug'ilgan kuni"
 
@@ -115,7 +115,7 @@ msgstr "Tug'ilgan kuni"
 msgid "Gender"
 msgstr "Jinsi"
 
-#: .\models.py:96
+#: .\models.py:96 .\templates\staff\employee_detail.html:27
 msgid "Biography"
 msgstr "Biografiyasi"
 
@@ -127,7 +127,7 @@ msgstr "Mukofot turi"
 msgid "Reward Types"
 msgstr "Mukofot turlari"
 
-#: .\models.py:124 .\models.py:157
+#: .\models.py:124 .\models.py:164
 msgid "Reward"
 msgstr "Mukofot"
 
@@ -151,27 +151,21 @@ msgstr "Kim tomonidan berilgan"
 msgid "Date Of Issue"
 msgstr "Berilgan Sanasi"
 
-#: .\models.py:149
+#: .\models.py:156
 msgid "Reward File"
 msgstr "Mukofot fayli"
 
-#: .\models.py:150
+#: .\models.py:157
 msgid "Reward Files"
 msgstr "Mukofot fayllari"
 
-#: .\models.py:153
+#: .\models.py:160
 msgid "File Name"
 msgstr "Fayl nomi"
 
-#: .\models.py:162
+#: .\models.py:169
 msgid "File"
 msgstr "Fayl"
-
-#: .\templates\staff\employee_detail.html:26
-#, fuzzy
-#| msgid "Biography"
-msgid "Biografiya"
-msgstr "Biografiyasi"
 
 #: .\templates\staff\employees.html:29
 msgid "No employees found"
