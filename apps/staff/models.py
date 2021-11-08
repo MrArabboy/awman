@@ -114,6 +114,7 @@ class RewardType(TranslatableModel):
         verbose_name_plural = _("Reward Types")
 
     translations = TranslatedFields(name=models.CharField(_("Name"), max_length=100))
+    image = models.ImageField(_("Image"), upload_to="reward_images/", null=True)
 
     def __str__(self):
         return self.name
@@ -134,7 +135,7 @@ class Reward(TranslatableModel):
     type = models.ForeignKey(
         RewardType, verbose_name=_("Type"), on_delete=models.SET_NULL, null=True
     )
-    image = models.ImageField(upload_to="reward_images/", null=True)
+
     issued_by = models.ForeignKey(
         Organization, verbose_name=_("Issued By"), on_delete=models.SET_NULL, null=True
     )
@@ -142,8 +143,8 @@ class Reward(TranslatableModel):
 
     @property
     def imageUrl(self):
-        if self.image:
-            return self.image.url
+        if self.type.image:
+            return self.type.image.url
         else:
             return ""
 

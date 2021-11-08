@@ -118,6 +118,10 @@ class RewardTypeAdmin(TranslatableAdmin):
                 "fields": ("name",),
             },
         ),
+        (
+            _("Nontranslated Fields"),
+            {"fields": ("image",)},
+        ),
     )
 
 
@@ -131,7 +135,7 @@ class RewardAdmin(TranslatableAdmin):
         (
             _("Nontranslated fields"),
             {
-                "fields": ("employee", "type", "image", "issued_by", "date_of_issue"),
+                "fields": ("employee", "type", "issued_by", "date_of_issue"),
             },
         ),
         (
