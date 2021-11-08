@@ -184,7 +184,7 @@ CKEDITOR_CONFIGS = {
         "uiColor": "#AADC6E",
         "enterMode": 2,
         # "shiftEnterMode": "CKEDITOR.ENTER_BR",
-        # "autoParagraph": "false",
+        "autoParagraph": False,
         "toolbar": "full",
         "height": 700,
         "width": 1500,

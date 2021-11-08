@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 {% block content %}
-
+<link rel="stylesheet" href="{% static 'staff/css/e_detail.css' %}">
 <div class="person-show__wrapper">
     <div class="person-show__row">
         <div class="person-show__image">
@@ -10,16 +10,49 @@
         </div>
         <div class="person-show__main-infomations">
             <h1 class="person-show__fullname">{{employee.full_name}}</h1>
-            <!-- <h3 class="person-show__position">{% trans 'Organization' %}:{{employee.organization.name}}</h3>
-            <h3 class="person-show__position">{% trans 'Position' %}:{{employee.position.name}}</h3> -->
             <h3 class="person-show__position">{{employee.position.name}}-{{employee.organization.name}}</h3>
             <p class="person-show__short-info">{% trans "Birthday" %} : {{employee.birthday|date:"d.m.Y"}}. {% trans "Nationality"%} : {{employee.nationality.nation}}.</p>
             <div class="person-show__rating">
                 {% for reward in rewards %}
-                    <span class="star"><img src="{{reward.imageUrl}}" alt="" srcset=""></span>
+                <div class="tooltip">
+                <span class="star" id="myBtn"><img src="{{reward.imageUrl}}" alt="" srcset=""></span>
+                <span class="tooltiptext">{{ reward.name }}</span>
+                <!-- The Modal -->
+                  <div id="myModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                      <span class="close">&times;</span>
+                      <table>
+                        <tr>
+                          <th>Reward Name</th>
+                          <th>Reward Type</th>
+                          <th>Issued By</th>
+                          <th>Organization Type</th>
+                          <th>Date of Issue</th>
+                          <th>Files</th>
+                        </tr>
+                        <tr>
+                          <td>{{ reward.name }}</td>
+                          <td>{{ reward.type.name }}</td>
+                          <td>{{ reward.issued_by.name }}</td>
+                          <td>{{ reward.issued_by.type.name }}</td>
+                          <td>{{ reward.date_of_issue|date:"d.m.Y" }}</td>
+                          <td>
+                          <ul>
+                          {% for doc in reward.files.all  %}
+                                <li><a href="{{doc.document.url}}" download style="color:blue">{{ doc.name }}</a></li>
+                              {% endfor %}
+                          </ul>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+
+                  </div>
+                </div>
                 {% endfor %}
-               
             </div>
+
         </div>
     </div>
     <div class="person-show__row">
@@ -28,6 +61,7 @@
         </div>
     </div>
 </div>
+<script src="{% static 'staff/js/e_detail.js' %}"></script>
 <script>
     function removeTag(){
         const original = document.getElementById("biography");
