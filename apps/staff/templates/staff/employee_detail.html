@@ -24,12 +24,12 @@
                       <span class="close">&times;</span>
                       <table>
                         <tr>
-                          <th>Reward Name</th>
-                          <th>Reward Type</th>
-                          <th>Issued By</th>
-                          <th>Organization Type</th>
-                          <th>Date of Issue</th>
-                          <th>Files</th>
+                          <th>{% trans "Reward Name"%}</th>
+                          <th>{% trans "Reward Type"%}</th>
+                          <th>{% trans "Issued By"%}</th>
+                          <th>{% trans "Organization Type"%}</th>
+                          <th>{% trans "Date of Issue"%}</th>
+                          <th>{% trans "Files"%}</th>
                         </tr>
                         <tr>
                           <td>{{ reward.name }}</td>
@@ -41,7 +41,7 @@
                           <ul>
                           {% for doc in reward.files.all  %}
                                 <li><a href="{{doc.document.url}}" download style="color:blue">{{ doc.name }}</a></li>
-                              {% endfor %}
+                          {% endfor %}
                           </ul>
                           </td>
                         </tr>

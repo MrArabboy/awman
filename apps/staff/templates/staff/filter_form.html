@@ -46,7 +46,7 @@
                 <div class="range-input">
                     <input type="hidden" id="min_year" name="min_year" value="{{request.GET.min_year}}">
                     <input type="hidden" id="max_year" name="max_year" value="{{request.GET.max_year}}">
-                    <div class="dual-range" data-min="1991" data-max="2021">
+                    <div class="dual-range" data-min="1991" data-max="{% now "Y" %}" id='slider_range'>
                         <span class="handle left" id="minimum_date"></span>
                         <span class="highlight" ></span>
                         <span class="handle right" id="maximum_date"></span>
@@ -110,6 +110,10 @@
     </aside>
 </form>
  <script>
+        {% comment %} const slider = document.getElementById("slider_range")
+        current_year = new Date().getFullYear()
+        slider.dataset.max = current_year
+        console.log(current_year,slider) {% endcomment %}
         function clearOrganizations(){
            const filter_form = document.getElementById("filter_form")
            const org_types = document.getElementsByName("org_type")

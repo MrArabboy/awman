@@ -90,7 +90,7 @@ def search_autocomplete(request):
             | Q(first_name__contains=value)
             | Q(last_name__contains=value)
             | Q(middle_name__contains=value),
-        )
+        )[:7]
         result = [q.full_name for q in queryset]
     else:
         result = []
