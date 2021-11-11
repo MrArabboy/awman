@@ -16,8 +16,18 @@
                 {% for reward in rewards %}
                 <div class="tooltip">
                 <span class="star" id="myBtn"><img src="{{reward.imageUrl}}" alt="" srcset=""></span>
-                <span class="tooltiptext">{{ reward.name }}</span>
-                <!-- The Modal -->
+                <span class="tooltiptext"><b>"{{ reward.name }}"</b> &#8212;
+                  {% get_current_language as LANGUAGE_CODE %}
+                  {% if LANGUAGE_CODE == "uz" %}
+                    {{reward.issued_by.type.name}} tomonidan berilgan.
+                  {% elif LANGUAGE_CODE == "ru" %}
+                    выдан {{reward.issued_by.type.name}}
+                  {% else %}
+                    issued by the {{reward.issued_by.type.name}}
+                  {% endif %}
+                  
+                 </span>
+               <!-- The Modal -->
                   <div id="myModal" class="modal">
                     <!-- Modal content -->
                     <div class="modal-content">

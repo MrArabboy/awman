@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-06 23:02+0500\n"
+"POT-Creation-Date: 2021-11-11 10:58+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,14 +18,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\admin.py:23 .\admin.py:66 .\admin.py:94 .\admin.py:132 .\admin.py:149
+#: .\admin.py:23 .\admin.py:66 .\admin.py:94 .\admin.py:136 .\admin.py:153
 msgid "Nontranslated fields"
 msgstr "Tarjima qilinmaydigan maydonlar"
 
 #: .\admin.py:39 .\admin.py:51 .\admin.py:72 .\admin.py:83 .\admin.py:100
-#: .\admin.py:116 .\admin.py:138 .\admin.py:158
+#: .\admin.py:116 .\admin.py:142 .\admin.py:162
 msgid "Translated Fields"
 msgstr "Tarjima qilinadigan maydonlar"
+
+#: .\admin.py:122
+#, fuzzy
+#| msgid "Nontranslated fields"
+msgid "Nontranslated Fields"
+msgstr "Tarjima qilinmaydigan maydonlar"
 
 #: .\apps.py:8
 msgid "Staff"
@@ -39,7 +45,7 @@ msgstr "Erkak"
 msgid "Female"
 msgstr "Ayol"
 
-#: .\models.py:14
+#: .\models.py:14 .\templates\staff\employee_detail.html:40
 msgid "Organization Type"
 msgstr "Tashkilot turi"
 
@@ -52,7 +58,6 @@ msgid "Name"
 msgstr "Nomi"
 
 #: .\models.py:25 .\models.py:42 .\models.py:80
-#: .\templates\staff\employee_detail.html:13
 msgid "Organization"
 msgstr "Tashkilot"
 
@@ -60,7 +65,7 @@ msgstr "Tashkilot"
 msgid "Organizations"
 msgstr "Tashkilotlar"
 
-#: .\models.py:29 .\models.py:135
+#: .\models.py:29 .\models.py:136
 msgid "Type"
 msgstr "Turi"
 
@@ -68,14 +73,14 @@ msgstr "Turi"
 msgid "Organization Name"
 msgstr "Tashkilot nomi"
 
-#: .\models.py:47 .\models.py:90 .\templates\staff\employee_detail.html:14
+#: .\models.py:47 .\models.py:90
 #, fuzzy
 #| msgid "Description"
 msgid "Position"
 msgstr "Lavozimi"
 
 #: .\models.py:56 .\models.py:60 .\models.py:76
-#: .\templates\staff\employee_detail.html:17
+#: .\templates\staff\employee_detail.html:14
 msgid "Nationality"
 msgstr "Millati"
 
@@ -83,7 +88,7 @@ msgstr "Millati"
 msgid "Nationalities"
 msgstr "Millatlar"
 
-#: .\models.py:69 .\models.py:132
+#: .\models.py:69 .\models.py:133
 msgid "Employee"
 msgstr "Xodim"
 
@@ -107,7 +112,7 @@ msgstr "Sharifi"
 msgid "Photo"
 msgstr "Rasmi"
 
-#: .\models.py:94 .\templates\staff\employee_detail.html:16
+#: .\models.py:94 .\templates\staff\employee_detail.html:14
 msgid "Birthday"
 msgstr "Tug'ilgan kuni"
 
@@ -115,11 +120,12 @@ msgstr "Tug'ilgan kuni"
 msgid "Gender"
 msgstr "Jinsi"
 
-#: .\models.py:96 .\templates\staff\employee_detail.html:27
+#: .\models.py:96 .\templates\staff\employee_detail.html:69
 msgid "Biography"
 msgstr "Biografiyasi"
 
-#: .\models.py:113 .\templates\staff\filter_form.html:60
+#: .\models.py:113 .\templates\staff\employee_detail.html:38
+#: .\templates\staff\filter_form.html:60
 msgid "Reward Type"
 msgstr "Mukofot turi"
 
@@ -127,45 +133,61 @@ msgstr "Mukofot turi"
 msgid "Reward Types"
 msgstr "Mukofot turlari"
 
-#: .\models.py:124 .\models.py:164
+#: .\models.py:117
+msgid "Image"
+msgstr ""
+
+#: .\models.py:125 .\models.py:165
 msgid "Reward"
 msgstr "Mukofot"
 
-#: .\models.py:125
+#: .\models.py:126
 msgid "Rewards"
 msgstr "Mukofotlar"
 
-#: .\models.py:128
+#: .\models.py:129 .\templates\staff\employee_detail.html:37
 msgid "Reward Name"
 msgstr "Mukofot nomi"
 
-#: .\models.py:129
+#: .\models.py:130
 msgid "Description"
 msgstr "Qaydlar"
 
-#: .\models.py:139
+#: .\models.py:140 .\templates\staff\employee_detail.html:39
 msgid "Issued By"
 msgstr "Kim tomonidan berilgan"
 
-#: .\models.py:141
+#: .\models.py:142
 msgid "Date Of Issue"
 msgstr "Berilgan Sanasi"
 
-#: .\models.py:156
+#: .\models.py:157
 msgid "Reward File"
 msgstr "Mukofot fayli"
 
-#: .\models.py:157
+#: .\models.py:158
 msgid "Reward Files"
 msgstr "Mukofot fayllari"
 
-#: .\models.py:160
+#: .\models.py:161
 msgid "File Name"
 msgstr "Fayl nomi"
 
-#: .\models.py:169
+#: .\models.py:170
 msgid "File"
 msgstr "Fayl"
+
+#: .\templates\staff\employee_detail.html:41
+#, fuzzy
+#| msgid "Date Of Issue"
+msgid "Date of Issue"
+msgstr "Berilgan Sanasi"
+
+#: .\templates\staff\employee_detail.html:42
+#, fuzzy
+#| msgid "File"
+msgid "Files"
+msgstr "Fayllari"
 
 #: .\templates\staff\employees.html:29
 msgid "No employees found"
