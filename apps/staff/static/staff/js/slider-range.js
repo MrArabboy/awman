@@ -29,7 +29,6 @@ class dualRangeSlider {
         this.handles[1].dataset.value = this.range.dataset.max;
         document.getElementById("min_year").value = this.handles[0].dataset.value
         document.getElementById("max_year").value = this.handles[1].dataset.value
-
     }
 
     startMoveTouch(e) {
@@ -50,9 +49,8 @@ class dualRangeSlider {
     moveTouch(e) {
         this.move({ clientX: e.touches[0].clientX })
     }
-
+    
     move(e) {
-        console.log(e)
         const isLeft = this.activeHandle.classList.contains("left")
         const property = isLeft ? "--x-1" : "--x-2";
         const parentRect = this.range.getBoundingClientRect();
@@ -74,9 +72,11 @@ class dualRangeSlider {
         this.range.style.setProperty(property, newX + "px");
         document.getElementById("min_year").value = this.handles[0].dataset.value
         document.getElementById("max_year").value = this.handles[1].dataset.value
-
+        localStorage.setItem('min_year', this.handles[0].dataset.value)
+        localStorage.setItem('max_year', this.handles[1].dataset.value)
+        
     }
-
+       
     calcHandleValue(percentage) {
         return Math.round(percentage * (this.max - this.min) + this.min)
     }

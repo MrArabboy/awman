@@ -1,6 +1,6 @@
 {% load i18n %}
 {% load get_list_filter %}
-<form action="{% url 'employees' %}" method="get" id="filter_form">
+ <form action="{% url 'employees' %}" method="get" id="filter_form"> 
     <aside class="sidebar">
         <div class="sidebar__header">
             <div class="sidebar__caption">
@@ -105,15 +105,50 @@
             </div>
         </div>
         <div class="sidebar__footer">
-            <button type="submit" class="sidebar__footer-btn">{% trans "Submit" %}</button>
+            <button class="sidebar__footer-btn" onclick="handleSubmit()">{% trans "Submit" %}</button>
         </div>
     </aside>
-</form>
+ </form> 
  <script>
-        {% comment %} const slider = document.getElementById("slider_range")
-        current_year = new Date().getFullYear()
-        slider.dataset.max = current_year
-        console.log(current_year,slider) {% endcomment %}
+        // let names =  ['org_type', 'min_year', 'max_year', 'reward_type', 'gender']
+        // async function handleSubmit() {
+        //     var url = "/qs/?"
+        //    names.forEach((name, i) => {
+        //         console.log(i)
+        //         document.getElementsByName(name).forEach((el,j) => {
+        //         console.log(j)
+                    
+        //             url = url + (i === 0 && j === 0 ? '': '&') + `${name}=${el.value}`
+        //         })
+        //     })
+        //     console.log(url)
+        //     let response = await fetch(url)
+        //     let data = response.json()
+        //     data.then(res => {
+        //     console.log(document.getElementById("employees"))
+        //         document.getElementById("employees").innerHTML = " ";
+        //         res.employees.forEach(emp => {
+        //             const employees = document.createElement("a")
+        //             employees.innerHTML = `<a href="/${emp.id}/detail" class="person-list__item">
+        //                     <div class="person-img">
+        //                         <img src="/media/${emp.photo}" alt="">
+        //                         <span class="person-name">${ emp.first_name }</span>
+        //                     </div>
+        //                     <div class="person__sub-title">
+        //                         ${emp.position_id}
+        //                     </div>
+        //                 </a>`
+        //             document.getElementById("employees").append(employees)
+        //         })
+        //         console.log(res.employees)
+        //     })
+
+
+
+            
+        //     console.log(data)
+        // }
+
         function clearOrganizations(){
            const filter_form = document.getElementById("filter_form")
            const org_types = document.getElementsByName("org_type")

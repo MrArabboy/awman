@@ -66,8 +66,9 @@
         </div>
     </div>
     <div class="person-show__row">
+        <div class="person-show__biography" id="biography">
         <div class="person-show__biography-caption">{% trans "Biography" %}</div>
-        <div class="person-show__biography" id="biography">{{ employee.biography|safe }}
+              {{ employee.biography|safe }}
         </div>
     </div>
 </div>

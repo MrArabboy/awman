@@ -393,7 +393,6 @@ aside.sidebar {
   background-color: #fff;
   border: 1px solid #f0edf3;
   margin-right: 40px;
-  height: 100%;
 }
 
 aside.sidebar .sidebar__header {
@@ -435,6 +434,12 @@ aside.sidebar .sidebar__searching-blocks .sidebar__searching-block .sidebar__sea
 }
 
 aside.sidebar .sidebar__footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 40px 55.5px;
   border-top: 1px solid #f0edf3;
 }
@@ -537,17 +542,19 @@ aside.sidebar .sidebar__clear {
 }
 
 .pagination {
-  margin-top: 50px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 1em 0;
 }
 
 .pagination .pagination-wrap {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 256px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 0 auto;
 }
 
@@ -557,7 +564,6 @@ aside.sidebar .sidebar__clear {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  width: 120px;
 }
 
 .pagination .pagination-wrap .numbers span {
@@ -566,6 +572,7 @@ aside.sidebar .sidebar__clear {
   font-weight: 600;
   font-size: 18px;
   line-height: 25px;
+  margin: 0 .75em;
   cursor: pointer;
 }
 
@@ -585,6 +592,7 @@ aside.sidebar .sidebar__clear {
   font-size: 30px;
   line-height: 24px;
   cursor: pointer;
+  margin: 0 .75em;
 }
 
 .person-list {
@@ -596,6 +604,7 @@ aside.sidebar .sidebar__clear {
 
 .person-list .person-list__wrapper {
   width: 100%;
+  position: relative;
 }
 
 .person-list .person-list__wrapper .person-list__grid {
@@ -605,6 +614,7 @@ aside.sidebar .sidebar__clear {
   grid-row-gap: 30px;
   -ms-grid-columns: calc(25% - 81px/4) calc(25% - 81px/4) calc(25% - 81px/4) calc(25% - 81px/4);
       grid-template-columns: calc(25% - 81px/4) calc(25% - 81px/4) calc(25% - 81px/4) calc(25% - 81px/4);
+  margin-bottom: 50px;
 }
 
 .person-list .person-list__wrapper .person-list__grid a.person-list__item {
@@ -643,7 +653,6 @@ aside.sidebar .sidebar__clear {
   left: 0;
   width: 100%;
   height: 216px;
-  background: url(/static/staff/img/guide_shadow.png) repeat-x 50%;
 }
 
 .person-list .person-list__wrapper .person-list__grid a.person-list__item .person__sub-title {
@@ -672,7 +681,6 @@ aside.sidebar .sidebar__clear {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 50px;
 }
 
 .person-show .person-show__wrapper .person-show__row .person-show__image {
@@ -680,8 +688,7 @@ aside.sidebar .sidebar__clear {
 }
 
 .person-show .person-show__wrapper .person-show__row .person-show__image img {
-  height: 280px;
-  width: 200px;
+  width: 250px;
 }
 
 .person-show .person-show__wrapper .person-show__row h1.person-show__fullname {
@@ -720,22 +727,23 @@ aside.sidebar .sidebar__clear {
   padding-right: 0;
 }
 
-.person-show .person-show__wrapper .person-show__row .person-show__biography-caption {
-  width: 200px;
-  margin-right: 45px;
-  text-align: right;
+.person-show .person-show__wrapper .person-show__row .person-show__biography {
+  margin: 50px 0 0 295px;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.person-show .person-show__wrapper .person-show__row .person-show__biography .person-show__biography-caption {
+  padding-bottom: 15px;
   font-weight: 600;
   font-size: 18px;
-  line-height: 22px;
+  line-height: 26px;
   -webkit-box-flex: 0;
       -ms-flex: none;
           flex: none;
 }
 
-.person-show .person-show__wrapper .person-show__row pre.person-show__biography {
+.person-show .person-show__wrapper .person-show__row .person-show__biography p {
   margin: 0;
-  font-size: 16px;
-  line-height: 20px;
-  white-space: pre-wrap;
 }
 /*# sourceMappingURL=style.css.map */

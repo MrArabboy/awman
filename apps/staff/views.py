@@ -4,7 +4,8 @@ from django.utils.translation import templatize
 from django.views.generic import ListView, DetailView
 from .models import Employee, GENDER_CHOICES, Reward, RewardType
 from django.db.models import Q
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
+from django.core import serializers
 
 
 def handler404(request, exception):
@@ -56,6 +57,7 @@ class EmployeeListView(ListView):
             queryset = queryset.filter(
                 reward__date_of_issue__year__range=[min_year, max_year]
             ).distinct()
+
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -96,3 +98,35 @@ def search_autocomplete(request):
         result = []
 
     return JsonResponse({"employees": result})
+
+
+def qs_json(request):
+    gender = request.GET.getlist("gender", None)
+    reward_type = request.GET.getlist("reward_type", None)
+    organization = request.GET.getlist("organization", None)
+    org_type = request.GET.getlist("org_type", None)
+    min_year = request.GET.get("min_year", None)
+    max_year = request.GET.get("max_year", None)
+
+    queryset = Employee.objects.all()
+    if gender:
+        queryset = Employee.objects.filter(gender__in=gender)
+    if org_type:
+        queryset = queryset.filter(
+            reward__issued_by__type__translations__name__in=org_type
+        )
+    if reward_type:
+        queryset = queryset.filter(
+            reward__type__translations__name__in=reward_type
+        ).distinct()
+
+    if min_year and max_year:
+        queryset = queryset.filter(
+            reward__date_of_issue__year__range=[min_year, max_year]
+        ).distinct()
+    data = list(
+        queryset.values()
+    )  # wrap in list(), because QuerySet is not JSON serializable
+    return JsonResponse(
+        {"employees": data}, safe=False
+    )  # or JsonResponse({'data': data})

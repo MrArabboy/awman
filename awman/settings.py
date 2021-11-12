@@ -181,10 +181,14 @@ CKEDITOR_IMAGE_BACKEND = "pillow"
 
 CKEDITOR_CONFIGS = {
     "default": {
-        "uiColor": "#AADC6E",
         "enterMode": 2,
-        # "shiftEnterMode": "CKEDITOR.ENTER_BR",
+        "shiftEnterMode": "CKEDITOR.ENTER_BR",
         "autoParagraph": False,
+        "indent": False,
+        "breakBeforeOpen": False,
+        "breakAfterOpen": False,
+        "breakBeforeClose": False,
+        "breakAfterClose": False,
         "toolbar": "full",
         "height": 700,
         "width": 1500,

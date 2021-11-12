@@ -1,21 +1,28 @@
 .pagination {
-    margin-top: 50px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 1em 0;
+
     .pagination-wrap {
         display: flex;
-        justify-content: space-between;
-        width: 256px;
+        justify-content: center;
         margin: 0 auto;
+
         .numbers {
             display: flex;
             justify-content: space-around;
-            width: 120px;
+            // width: 120px;
+
             span {
                 color: #969696;
                 text-align: center;
                 font-weight: 600;
                 font-size: 18px;
                 line-height: 25px;
+                margin: 0 .75em;
                 cursor: pointer;
+
                 &.active {
                     cursor: default;
                     width: 25px;
@@ -26,6 +33,7 @@
                 }
             }
         }
+
         .arrow {
             color: #969696;
             text-align: center;
@@ -33,6 +41,7 @@
             font-size: 30px;
             line-height: 24px;
             cursor: pointer;
+            margin: 0 .75em;
         }
     }
 }

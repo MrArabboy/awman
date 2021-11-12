@@ -3,7 +3,7 @@ aside.sidebar {
     background-color: #fff;
     border: 1px solid #f0edf3;
     margin-right: 40px;
-    height: 100%;
+
     .sidebar__header {
         display: flex;
         justify-content: space-between;
@@ -14,10 +14,13 @@ aside.sidebar {
         border-radius: 4px 4px 0 0;
         border-bottom: 1px solid #f0edf3;
     }
+
     .sidebar__searching-blocks {
         padding: 30px 32px;
+
         .sidebar__searching-block {
             padding-bottom: 50px;
+
             .sidebar__searching-block-row {
                 display: flex;
                 justify-content: space-between;
@@ -26,7 +29,10 @@ aside.sidebar {
             }
         }
     }
+
     .sidebar__footer {
+        display: flex;
+        justify-content: center;
         padding: 40px 55.5px;
         border-top: 1px solid #f0edf3;
 
@@ -47,6 +53,7 @@ aside.sidebar {
         font-size: 14px;
         font-weight: 400;
     }
+
     .sidebar__clear {
         font-size: 10px;
         text-transform: uppercase;
