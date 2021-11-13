@@ -110,6 +110,12 @@
     </aside>
  </form> 
  <script>
+     const min_year = 1991
+     const max_year = new Date().getFullYear()
+     const selectedMinYear = '{{ request.GET.min_year }}'
+     const selectedMaxYear = '{{ request.GET.max_year }}'
+     const range = document.querySelector(".dual-range")
+
         // let names =  ['org_type', 'min_year', 'max_year', 'reward_type', 'gender']
         // async function handleSubmit() {
         //     var url = "/qs/?"

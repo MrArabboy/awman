@@ -15,20 +15,32 @@ class dualRangeSlider {
             handle.addEventListener("mousedown", this.startMove.bind(this))
             handle.addEventListener("touchstart", this.startMoveTouch.bind(this))
         })
-        
         window.addEventListener("mouseup", this.stopMove.bind(this))
         window.addEventListener("touchend", this.stopMove.bind(this))
         window.addEventListener("touchcancel", this.stopMove.bind(this))
         window.addEventListener("touchleave", this.stopMove.bind(this))
-
+       
         const rangeRect = this.range.getBoundingClientRect();
         const handleRect = this.handles[0].getBoundingClientRect()
+        if(selectedMinYear && selectedMaxYear) {
+            const diffMin = max_year - Number(selectedMinYear);
+            const diffMax = max_year - Number(selectedMaxYear);
+            const max_min_diff = max_year - min_year;
+            const length = 243.602 / max_min_diff
+            this.range.style.setProperty("--x-1", `${(max_min_diff - diffMin) * length}px`);
+            this.range.style.setProperty("--x-2", `${(max_min_diff- diffMax) * length}px`);
+            this.handles[0].dataset.value = selectedMinYear;
+            this.handles[1].dataset.value = selectedMaxYear;
+            document.getElementById("min_year").value = this.handles[0].dataset.value
+            document.getElementById("max_year").value = this.handles[1].dataset.value
+        } else {
         this.range.style.setProperty("--x-1", "0px");
         this.range.style.setProperty("--x-2", rangeRect.width - handleRect.width / 2 + "px");
         this.handles[0].dataset.value = this.range.dataset.min;
         this.handles[1].dataset.value = this.range.dataset.max;
         document.getElementById("min_year").value = this.handles[0].dataset.value
         document.getElementById("max_year").value = this.handles[1].dataset.value
+        }
     }
 
     startMoveTouch(e) {
