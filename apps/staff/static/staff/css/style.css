@@ -279,7 +279,11 @@ header .header-wrap .header__languages {
   height: 40px;
 }
 
-header .header-wrap .header__languages .header__selected-language {
+header .header-wrap .header__languages label #languages {
+  display: none;
+}
+
+header .header-wrap .header__languages label .header__selected-language {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -288,39 +292,60 @@ header .header-wrap .header__languages .header__selected-language {
           justify-content: space-between;
 }
 
-header .header-wrap .header__languages .header__selected-language .flag {
+header .header-wrap .header__languages label .header__selected-language .header__select-lang {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+header .header-wrap .header__languages label .header__selected-language .header__select-lang .flag {
   height: 28px;
   width: 28px;
   border-radius: 50%;
 }
 
-header .header-wrap .header__languages .header__selected-language label .language {
+header .header-wrap .header__languages label .header__selected-language .header__select-lang .language {
   padding: 4px 0;
   font-size: 16px;
   line-height: 19px;
   font-weight: 600;
 }
 
-header .header-wrap .header__languages .header__selected-language label #languages {
-  display: none;
+header .header-wrap .header__languages label .header__selected-language .header__select-lang:hover {
+  cursor: pointer;
 }
 
-header .header-wrap .header__languages .header__selected-language label .header__other-langueges {
+header .header-wrap .header__languages label .header__selected-language .header__other-langueges {
   display: none;
   position: absolute;
+  margin-left: -0.5em;
+  margin-top: 2.25em;
+  z-index: 999999;
   -webkit-box-shadow: 0 4px 8px 0px #aaa;
           box-shadow: 0 4px 8px 0px #aaa;
 }
 
-header .header-wrap .header__languages .header__selected-language label .header__other-langueges .other-language-item {
-  padding: 4px 8px;
+header .header-wrap .header__languages label .header__selected-language .header__other-langueges .other-language-item {
+  padding: 8px 16px;
   background-color: #fff;
   font-size: 16px;
   line-height: 19px;
   font-weight: 600;
+  -webkit-transition: 0.3s ease-in-out all;
+  transition: 0.3s ease-in-out all;
 }
 
-header .header-wrap .header__languages .header__selected-language label #languages:checked ~ .header__other-langueges {
+header .header-wrap .header__languages label .header__selected-language .header__other-langueges .other-language-item:hover {
+  cursor: pointer;
+  background-color: #29558e;
+  color: #fff;
+}
+
+header .header-wrap .header__languages #languages:checked ~ .header__selected-language .header__other-langueges {
   display: block;
 }
 

@@ -1,29 +1,32 @@
 {% load i18n %}
 {% load static %}
 <div class="header__languages">
-    <div class="header__selected-language">
         {% get_current_language as LANGUAGE_CODE %}
         {% get_available_languages as LANGUAGES %}
         {% get_language_info_list for LANGUAGES as languages %}
-            {% with 'staff/img/'|add:LANGUAGE_CODE|add:'-flag.png' as image_static %}
-                <img src="{% static image_static %}" alt="flag" class="flag">     
-            {% endwith %}
+            
         <label>
         <form id="languageForm" action="{% url 'set_language' %}" method="post" style="display:inline">
             {% csrf_token %}
-            <div class="language">{{LANGUAGE_CODE}}</div>
-                <input name='languageCode' type="checkbox" id="languages"> 
-            <div class="header__other-langueges">
-                {% for language in languages %}
-                    {% if language.code != LANGUAGE_CODE %}
-                        <div onclick="changeLanguage('{{language.code}}')" class="other-language-item">{{language.name_translated}}</div>
-                    {% endif %} 
-                {% endfor %}
-            </div>
+            <input name='languageCode' type="checkbox" id="languages"> 
+            <div class="header__selected-language">
+                <div class="header__select-lang">
+                    {% with 'staff/img/'|add:LANGUAGE_CODE|add:'-flag.png' as image_static %}
+                        <img src="{% static image_static %}" alt="flag" class="flag">     
+                    {% endwith %}
+                    <div class="language">{{LANGUAGE_CODE}}</div>
+                </div>
+                
+                <div class="header__other-langueges">
+                    {% for language in languages %}
+                        {% if language.code != LANGUAGE_CODE %}
+                            <div onclick="changeLanguage('{{language.code}}')" class="other-language-item">{{language.name_translated}}</div>
+                        {% endif %} 
+                    {% endfor %}
+                </div>
         </form>
+        </div>
         </label>
-    </div>
-
 </div>
  <script>
     function changeLanguage(languageCode) {
@@ -31,3 +34,4 @@
         location.reload()
     }
 </script>
+
