@@ -48,7 +48,7 @@
                           <td>{{ reward.issued_by.type.name }}</td>
                           <td>{{ reward.date_of_issue|date:"d.m.Y" }}</td>
                           <td>
-                          <ul>
+                          <ul style="list-style:inside">
                           {% for doc in reward.files.all  %}
                                 <li><a href="{{doc.document.url}}" download style="color:blue">{{ doc.name }}</a></li>
                           {% endfor %}

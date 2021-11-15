@@ -103,9 +103,13 @@ table tbody {
   width: 100%;
 }
 
-th,
+th {
+  text-align: center;
+  padding: 16px;
+}
+
 td {
-  text-align: left;
+  text-align: center;
   padding: 16px;
 }
 
