@@ -37,6 +37,10 @@ class Organization(TranslatableModel):
 
 
 class Position(TranslatableModel):
+    class Meta:
+        verbose_name = _("Position")
+        verbose_name_plural = _("Positions")
+
     organization = models.ForeignKey(
         Organization,
         verbose_name=_("Organization"),
