@@ -15,7 +15,7 @@
             <div class="person-show__rating">
                 {% for reward in rewards %}
                 <div class="tooltip">
-                <span class="star" id="myBtn"><img src="{{reward.imageUrl}}" alt="" srcset=""></span>
+                <span class="star" onclick="openModal({{reward.id}})"><img src="{{reward.imageUrl}}" alt="" srcset=""></span>
                 <span class="tooltiptext"><b>"{{ reward.name }}"</b> &#8212;
                   {% get_current_language as LANGUAGE_CODE %}
                   {% if LANGUAGE_CODE == "uz" %}
@@ -28,7 +28,7 @@
                   
                  </span>
                <!-- The Modal -->
-                  <div id="myModal" class="modal">
+                  <div id="myModal{{reward.id}}" class="modal">
                     <!-- Modal content -->
                     <div class="modal-content">
                       <span class="close">&times;</span>
