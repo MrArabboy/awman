@@ -138,11 +138,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, "apps\staff\locale"),
+    os.path.join(BASE_DIR, "locale"),
+]
+
+
 def gettext(l):
     return l
 
 
-LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
 LANGUAGES = (
     # Customize this
     ("en", gettext("English")),

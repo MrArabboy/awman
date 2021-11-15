@@ -119,7 +119,7 @@ class RewardTypeAdmin(TranslatableAdmin):
             },
         ),
         (
-            _("Nontranslated Fields"),
+            _("Nontranslated fields"),
             {"fields": ("image",)},
         ),
     )

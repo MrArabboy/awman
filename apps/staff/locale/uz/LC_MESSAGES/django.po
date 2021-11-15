@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-15 09:42+0500\n"
+"POT-Creation-Date: 2021-11-15 11:27+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,15 +75,13 @@ msgstr "Tashkilot nomi"
 
 #: .\models.py:41 .\models.py:51 .\models.py:94
 #, fuzzy
-#| msgid "Description"
 msgid "Position"
 msgstr "Lavozimi"
 
 #: .\models.py:42
 #, fuzzy
-#| msgid "Description"
 msgid "Positions"
-msgstr "Lavozimi"
+msgstr "Lavozimlar"
 
 #: .\models.py:60 .\models.py:64 .\models.py:80
 #: .\templates\staff\employee_detail.html:14
