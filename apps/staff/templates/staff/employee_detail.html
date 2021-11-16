@@ -21,9 +21,7 @@
                 <div class="tooltip">
                 <span class="star" onclick="openModal({{reward.id}})"><img src="{{reward.imageUrl}}" style="width:60px;height:70px"></span>
                 <span class="tooltiptext">
-                  {% trans "Reward Name" %} : <b>"{{ reward.name }}"</b>
-                  <br>
-                  {% trans "Organization Type" %} : <b>"{{ reward.issued_by.type.name }}"</b>
+                  <b>"{{ reward.name }}"</b>
                  </span>
                <!-- The Modal -->
                   <div id="myModal{{reward.id}}" class="modal">

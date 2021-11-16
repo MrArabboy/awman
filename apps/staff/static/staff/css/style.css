@@ -740,15 +740,17 @@ aside.sidebar .sidebar__clear {
 }
 
 .person-show .person-show__wrapper .person-show__row .person-show__rating {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 25% 25% 25% 25%;
-      grid-template-columns: 25% 25% 25% 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin-top: 37px;
+  max-width: 372px;
 }
 
 .person-show .person-show__wrapper .person-show__row .person-show__rating .star {
-  padding-right: 19px;
+  display: block;
 }
 
 .person-show .person-show__wrapper .person-show__row .person-show__rating .star img {

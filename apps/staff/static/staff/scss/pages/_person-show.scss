@@ -37,12 +37,13 @@
             }
 
             .person-show__rating {
-                display: grid;
-                grid-template-columns: 25% 25% 25% 25%;
+                display: flex;
+                flex-wrap: wrap;
                 margin-top: 37px;
+                max-width: 372px;
 
                 .star {
-                    padding-right: 19px;
+                    display: block;
 
                     img {
                         width: 60px;

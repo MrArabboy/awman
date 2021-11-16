@@ -213,7 +213,7 @@ msgstr "Поиск по периоду"
 
 #: .\templates\staff\filter_form.html:108
 msgid "Submit"
-msgstr "Применит"
+msgstr "Применить"
 
 #: .\templates\staff\searching.html:7
 msgid "Type to search..."
