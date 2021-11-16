@@ -2,10 +2,12 @@ from django.shortcuts import render
 from django.template import RequestContext
 from django.utils.translation import templatize
 from django.views.generic import ListView, DetailView
-from .models import Employee, GENDER_CHOICES, Reward, RewardType
+from .models import Employee, GENDER_CHOICES, Reward, RewardType, EmployeeTranslation
 from django.db.models import Q
 from django.http import JsonResponse, HttpResponse
 from django.core import serializers
+from django.db.models import CharField, Value as V
+from django.db.models.functions import Concat
 
 
 def handler404(request, exception):
@@ -17,10 +19,10 @@ class EmployeeListView(ListView):
     model = Employee
     context_object_name = "employees"
     template_name = "staff/employees.html"
-    paginate_by = 12
+    paginate_by = 8
 
     def get_queryset(self):
-        queryset = self.model.objects.all()
+        queryset = Employee.objects.all()  # EmployeeTranslation.objects.all()
         search = self.request.GET.get("search", None)
         gender = self.request.GET.getlist("gender", None)
         reward_type = self.request.GET.getlist("reward_type", None)
@@ -30,15 +32,17 @@ class EmployeeListView(ListView):
         max_year = self.request.GET.get("max_year", None)
 
         if search:
-            obj_ids = [
-                obj.id for obj in self.model.objects.all() if search in obj.full_name
-            ]
-
+            search = search.title()
+            search = list(search.split(" "))
+            if len(search) == 1:
+                search = search[0]
             queryset = queryset.filter(
-                Q(id__in=obj_ids)
-                | Q(first_name__contains=search)
-                | Q(last_name__contains=search)
-                | Q(middle_name__contains=search),
+                Q(translations__first_name__contains=search)
+                | Q(translations__last_name__contains=search)
+                | Q(translations__middle_name__contains=search)
+                | Q(translations__first_name__in=search)
+                | Q(translations__last_name__in=search)
+                | Q(translations__middle_name__in=search)
             )
 
         if gender:
@@ -83,17 +87,24 @@ class EmployeeBiographyView(DetailView):
 
 
 def search_autocomplete(request):
-    value = request.GET.get("search", None)
+    search = request.GET.get("search", None)
     queryset = Employee.objects.all()
-    if value:
-        obj_ids = [obj.id for obj in queryset if value in obj.full_name]
+    if search:
+        search = search.title()
+        search = list(search.split(" "))
+        if len(search) == 1:
+            search = search[0]
         queryset = queryset.filter(
-            Q(id__in=obj_ids)
-            | Q(first_name__contains=value)
-            | Q(last_name__contains=value)
-            | Q(middle_name__contains=value),
+            Q(translations__first_name__contains=search)
+            | Q(translations__last_name__contains=search)
+            | Q(translations__middle_name__contains=search)
+            | Q(translations__first_name__in=search)
+            | Q(translations__last_name__in=search)
+            | Q(translations__middle_name__in=search)
         )[:7]
-        result = [q.full_name for q in queryset]
+        result = [
+            (q.last_name + " " + q.first_name + " " + q.middle_name) for q in queryset
+        ]
     else:
         result = []
 
