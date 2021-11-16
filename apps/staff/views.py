@@ -101,7 +101,7 @@ def search_autocomplete(request):
             | Q(translations__first_name__in=search)
             | Q(translations__last_name__in=search)
             | Q(translations__middle_name__in=search)
-        )[:7]
+        ).distinct()[:7]
         result = [
             (q.last_name + " " + q.first_name + " " + q.middle_name) for q in queryset
         ]
