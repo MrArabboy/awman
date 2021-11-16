@@ -17,7 +17,7 @@ class EmployeeListView(ListView):
     model = Employee
     context_object_name = "employees"
     template_name = "staff/employees.html"
-    paginate_by = 8
+    paginate_by = 12
 
     def get_queryset(self):
         queryset = self.model.objects.all()

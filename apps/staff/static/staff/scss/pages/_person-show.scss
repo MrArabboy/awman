@@ -13,6 +13,7 @@
 
                 img {
                     width: 250px;
+                    height: 332px;
                 }
             }
 
@@ -36,14 +37,16 @@
             }
 
             .person-show__rating {
+                display: grid;
+                grid-template-columns: 25% 25% 25% 25%;
                 margin-top: 37px;
 
                 .star {
                     padding-right: 19px;
 
                     img {
-                        width: 100px;
-                        height: 100px;
+                        width: 60px;
+                        height: 70px;
                     }
 
                     &:last-child {
@@ -58,6 +61,7 @@
                 margin: 50px 0 0 295px;
                 font-size: 16px;
                 line-height: 26px;
+                text-align: justify;
 
 
                 .person-show__biography-caption {
