@@ -20,12 +20,20 @@ class EmployeeAdmin(TranslatableAdmin):
     list_filter = ["gender"]
     fieldsets = (
         (
-            _("Nontranslated fields"),
+            _("Translated Fields"),
             {
                 "fields": (
                     "first_name",
                     "last_name",
                     "middle_name",
+                    "biography",
+                ),
+            },
+        ),
+        (
+            _("Nontranslated fields"),
+            {
+                "fields": (
                     "gender",
                     "nationality",
                     "organization",
@@ -33,12 +41,6 @@ class EmployeeAdmin(TranslatableAdmin):
                     "photo",
                     "birthday",
                 ),
-            },
-        ),
-        (
-            _("Translated Fields"),
-            {
-                "fields": ("biography",),
             },
         ),
     )

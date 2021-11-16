@@ -73,9 +73,13 @@ class Employee(TranslatableModel):
         verbose_name = _("Employee")
         verbose_name_plural = _("Employees")
 
-    first_name = models.CharField(_("First Name"), max_length=50)
-    last_name = models.CharField(_("Last Name"), max_length=50)
-    middle_name = models.CharField(_("Middle Name"), max_length=50)
+    translations = TranslatedFields(
+        first_name=models.CharField(_("First Name"), max_length=50, null=True),
+        last_name=models.CharField(_("Last Name"), max_length=50, null=True),
+        middle_name=models.CharField(_("Middle Name"), max_length=50, null=True),
+        biography=RichTextUploadingField(_("Biography")),
+    )
+
     nationality = models.ForeignKey(
         Nationality, verbose_name=_("Nationality"), on_delete=models.SET_NULL, null=True
     )
@@ -97,7 +101,6 @@ class Employee(TranslatableModel):
     photo = models.ImageField(_("Photo"), upload_to="employee_images/")
     birthday = models.DateField(_("Birthday"))
     gender = models.CharField(_("Gender"), choices=GENDER_CHOICES, max_length=20)
-    translations = TranslatedFields(biography=RichTextUploadingField(_("Biography")))
 
     def __str__(self):
         return f"{self.last_name} {self.first_name} {self.middle_name}"
