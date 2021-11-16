@@ -680,6 +680,7 @@ aside.sidebar .sidebar__clear {
   left: 0;
   width: 100%;
   height: 216px;
+  background: url(/static/staff/img/guide_shadow.png) repeat-x 50%;
 }
 
 .person-list .person-list__wrapper .person-list__grid a.person-list__item .person__sub-title {
