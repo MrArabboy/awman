@@ -1,9 +1,10 @@
+{% load url_decode %}
 {% if is_paginated %}
 <div class="pagination">
     <div class="pagination-wrap">
         
             {% if page_obj.has_previous %}
-                <a class="page-link" href="?page={{ page_obj.previous_page_number }}"><div class="arrow ri-arrow-left-s-line"></div></a>
+                <a class="page-link" href="?{% param_replace page=page_obj.previous_page_number %}"><div class="arrow ri-arrow-left-s-line"></div></a>
             {% else %}
                 <div class="arrow ri-arrow-left-s-line"></div>
             {% endif %}
@@ -12,13 +13,13 @@
                         {% if page_obj.number == num %}
                         <span class="active">{{ num }}</span>
                     {% elif num > page_obj.number|add:'-5' and num < page_obj.number|add:'5' %}
-                        <a href="?page={{ num }}"><span>{{ num }}</span></a>
+                        <a href="?{% param_replace page=num %}"><span>{{ num }}</span></a>
                     {% endif %}
                 {% endfor %}
 
             </div>
             {% if page_obj.has_next %}
-                <a class="page-link" href="?page={{ page_obj.next_page_number }}"> <div class="arrow ri-arrow-right-s-line"></div></a>
+                <a class="page-link" href="?{% param_replace page=page_obj.next_page_number %}"> <div class="arrow ri-arrow-right-s-line"></div></a>
             {% else %}
                 <div class="arrow ri-arrow-right-s-line"></div>
             {% endif %}  

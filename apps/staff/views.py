@@ -1,13 +1,8 @@
 from django.shortcuts import render
-from django.template import RequestContext
-from django.utils.translation import templatize
 from django.views.generic import ListView, DetailView
-from .models import Employee, GENDER_CHOICES, Reward, RewardType, EmployeeTranslation
+from .models import Employee, GENDER_CHOICES
 from django.db.models import Q
-from django.http import JsonResponse, HttpResponse
-from django.core import serializers
-from django.db.models import CharField, Value as V
-from django.db.models.functions import Concat
+from django.http import JsonResponse
 
 
 def handler404(request, exception):
@@ -22,7 +17,7 @@ class EmployeeListView(ListView):
     paginate_by = 8
 
     def get_queryset(self):
-        queryset = Employee.objects.all()  # EmployeeTranslation.objects.all()
+        queryset = Employee.objects.all()
         search = self.request.GET.get("search", None)
         gender = self.request.GET.getlist("gender", None)
         reward_type = self.request.GET.getlist("reward_type", None)
