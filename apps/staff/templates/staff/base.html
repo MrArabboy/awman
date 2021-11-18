@@ -21,7 +21,8 @@
    <header>
         <div class="container">
             <div class="header-wrap">
-                <div class="header__logo">
+            <div style="display: flex; align-items: center;">
+                <div class="header__logo" style="width: 360px;">
                     <a href="{% url 'employees' %}">
                         <img src="{% static 'staff/img/utc23.svg' %}" style="width:240px;height:38px" alt="logo" class="logo">
                     </a>
@@ -29,9 +30,9 @@
                  <nav>
                     <div class="navbar__menu">
                         <a href="{% url 'about'%}" class="navbar__menu-item">{% trans 'About site' %}</a>
-                        
                     </div>
                 </nav>
+            </div>
                 {% comment %} {% include 'staff/navbar_menu.html' %} {% endcomment %}
                 {% include 'staff/select_language.html' %}
             </div>

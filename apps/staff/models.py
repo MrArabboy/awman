@@ -46,6 +46,10 @@ class Organization(TranslatableModel):
         name=models.CharField(_("Organization Name"), max_length=100)
     )
 
+    @property
+    def number_of_positions(self):
+        return self.position_set.all().count()
+
     def __str__(self):
         return self.name
 
@@ -77,6 +81,10 @@ class Nationality(TranslatableModel):
     translations = TranslatedFields(
         nation=models.CharField(_("Nationality"), max_length=30)
     )
+
+    @property
+    def number_of_employees(self):
+        return self.employee_set.all().count()
 
     def __str__(self):
         return self.nation

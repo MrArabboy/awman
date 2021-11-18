@@ -19,7 +19,7 @@ class EmployeeAdmin(TranslatableAdmin):
     list_display = ["__str__", "gender", "birthday", "image_tag"]
     readonly_fields = ["image_tag"]
     search_fields = ["last_name", "first_name", "middle_name", "birthday"]
-    list_filter = ["gender"]
+    list_filter = ["organization", "nationality", "position", "gender"]
     fieldsets = (
         (
             _("Translated Fields"),
@@ -61,7 +61,7 @@ class OrganizationTypeAdmin(TranslatableAdmin):
 
 
 class OrganizationAdmin(TranslatableAdmin):
-    list_display = ["name", "type"]
+    list_display = ["name", "type", "number_of_positions"]
     search_fields = ["type", "name"]
     autocomplete_fields = ["type"]
     list_filter = ["type"]
@@ -82,6 +82,7 @@ class OrganizationAdmin(TranslatableAdmin):
 
 
 class NationalityAdmin(TranslatableAdmin):
+    list_display = ["nation", "number_of_employees"]
     fieldsets = (
         (
             _("Translated Fields"),
@@ -93,6 +94,8 @@ class NationalityAdmin(TranslatableAdmin):
 
 
 class PositionAdmin(TranslatableAdmin):
+    list_filter = ["organization"]
+    search_fields = ["translations__name"]
     fieldsets = (
         (
             _("Nontranslated fields"),
@@ -131,10 +134,18 @@ class RewardTypeAdmin(TranslatableAdmin):
 
 class RewardAdmin(TranslatableAdmin):
     list_display = ["employee", "name", "type", "issued_by", "date_of_issue"]
-    search_fields = ["employee", "name", "description", "type", "issued_by"]
+    search_fields = [
+        "employee__translations__first_name",
+        "employee__translations__last_name",
+        "employee__translations__last_name",
+        "translations__name",
+        "translations__description",
+        # "type",
+        # "issued_by",
+    ]
     autocomplete_fields = ["employee", "type", "issued_by"]
     inlines = [RewardFileAdmin]
-    list_filter = ["type", "issued_by"]
+    list_filter = ["type", "issued_by", "translations__name"]
     fieldsets = (
         (
             _("Nontranslated fields"),
