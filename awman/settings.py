@@ -156,21 +156,21 @@ LANGUAGES = (
 )
 # Parler Configuration
 
-PARLER_DEFAULT_LANGUAGE_CODE = "en"
+PARLER_DEFAULT_LANGUAGE_CODE = "uz"
 PARLER_LANGUAGES = {
     None: (
         {
-            "code": "en",
+            "code": "uz",
         },
         {
             "code": "ru",
         },
         {
-            "code": "uz",
+            "code": "en",
         },
     ),
     "default": {
-        "fallbacks": ["en"],  # defaults to PARLER_DEFAULT_LANGUAGE_CODE
+        "fallbacks": ["uz", "ru", "en"],  # defaults to PARLER_DEFAULT_LANGUAGE_CODE
         "hide_untranslated": False,  # the default; let .active_translations() return fallbacks too.
     },
 }

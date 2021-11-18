@@ -1,11 +1,10 @@
 from django.db import models
-from django.utils import translation
 from django.utils.safestring import mark_safe
 from parler.models import TranslatableModel, TranslatedFields
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils.translation import ugettext_lazy as _
 from smart_selects.db_fields import ChainedForeignKey
-from django.core.exceptions import ValidationError
+
 
 GENDER_CHOICES = (("male", _("Male")), ("female", _("Female")))
 

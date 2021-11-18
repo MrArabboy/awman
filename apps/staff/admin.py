@@ -1,7 +1,11 @@
 from ckeditor import fields
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
-from parler.admin import TranslatableAdmin, TranslatableStackedInline
+from parler.admin import (
+    TranslatableAdmin,
+    TranslatableStackedInline,
+    TranslatableTabularInline,
+)
 from .models import (
     Employee,
     Organization,
@@ -16,10 +20,23 @@ from .models import (
 
 
 class EmployeeAdmin(TranslatableAdmin):
-    list_display = ["__str__", "gender", "birthday", "image_tag"]
+    list_display = [
+        "full_name",
+        "organization",
+        "position",
+        "gender",
+        "birthday",
+        "image_tag",
+    ]
     readonly_fields = ["image_tag"]
-    search_fields = ["last_name", "first_name", "middle_name", "birthday"]
+    search_fields = [
+        "translations__last_name",
+        "translations__first_name",
+        "translations__middle_name",
+        "birthday",
+    ]
     list_filter = ["organization", "nationality", "position", "gender"]
+
     fieldsets = (
         (
             _("Translated Fields"),
@@ -62,7 +79,7 @@ class OrganizationTypeAdmin(TranslatableAdmin):
 
 class OrganizationAdmin(TranslatableAdmin):
     list_display = ["name", "type", "number_of_positions"]
-    search_fields = ["type", "name"]
+    search_fields = ["type", "translations__name"]
     autocomplete_fields = ["type"]
     list_filter = ["type"]
     fieldsets = (
@@ -113,7 +130,7 @@ class PositionAdmin(TranslatableAdmin):
     )
 
 
-class RewardFileAdmin(TranslatableStackedInline):
+class RewardFileAdmin(TranslatableTabularInline):
     model = RewardFile
 
 
@@ -141,8 +158,6 @@ class RewardAdmin(TranslatableAdmin):
         "employee__translations__last_name",
         "translations__name",
         "translations__description",
-        # "type",
-        # "issued_by",
     ]
     autocomplete_fields = ["employee", "type", "issued_by"]
     inlines = [RewardFileAdmin]

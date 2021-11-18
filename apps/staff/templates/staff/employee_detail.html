@@ -46,7 +46,7 @@
                           <td style="text-align:left">
                     
                           {% for doc in reward.files.all  %}
-                                <a href="{{doc.document.url}}" download style="color:blue"><i class="fas fa-download"></i> {{ doc.name|truncatechars:10 }}</a><br>
+                                <a href="{{doc.document.url}}" download style="color:blue"><i class="fas fa-download"></i> {{ doc.name|truncatechars:12 }}</a><br>
                           {% endfor %}
                          
                           </td>

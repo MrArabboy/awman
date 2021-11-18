@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-18 10:06+0500\n"
+"POT-Creation-Date: 2021-11-18 15:39+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,13 +20,13 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\admin.py:25 .\admin.py:55 .\admin.py:76 .\admin.py:87 .\admin.py:104
-#: .\admin.py:120 .\admin.py:146 .\admin.py:166 .\admin.py:177
+#: .\admin.py:42 .\admin.py:72 .\admin.py:93 .\admin.py:105 .\admin.py:125
+#: .\admin.py:141 .\admin.py:173 .\admin.py:193 .\admin.py:204
 msgid "Translated Fields"
 msgstr "Переводимые поля"
 
-#: .\admin.py:36 .\admin.py:70 .\admin.py:98 .\admin.py:126 .\admin.py:140
-#: .\admin.py:157
+#: .\admin.py:53 .\admin.py:87 .\admin.py:119 .\admin.py:147 .\admin.py:167
+#: .\admin.py:184
 msgid "Nontranslated fields"
 msgstr "Непереводимые поля"
 
@@ -34,175 +34,167 @@ msgstr "Непереводимые поля"
 msgid "Staff"
 msgstr "Сотрудники"
 
-#: .\models.py:10 .\templates\staff\filter_form.html:89
+#: .\models.py:9 .\templates\staff\filter_form.html:89
 msgid "Male"
 msgstr "Мужской"
 
-#: .\models.py:10 .\templates\staff\filter_form.html:98
+#: .\models.py:9 .\templates\staff\filter_form.html:98
 msgid "Female"
 msgstr "Женский"
 
-#: .\models.py:15 .\models.py:16
+#: .\models.py:14 .\models.py:15
 msgid "SiteInfo"
 msgstr "О сайте"
 
-#: .\models.py:19
+#: .\models.py:18
 #, fuzzy
 #| msgid "About site"
 msgid "About Site"
 msgstr "О сайте"
 
-#: .\models.py:28 .\templates\staff\employee_detail.html:36
+#: .\models.py:27 .\templates\staff\employee_detail.html:36
 msgid "Organization Type"
 msgstr "Тип организации"
 
-#: .\models.py:29 .\templates\staff\filter_form.html:19
+#: .\models.py:28 .\templates\staff\filter_form.html:19
 msgid "Organization Types"
 msgstr "Типы организаций"
 
-#: .\models.py:31 .\models.py:137
+#: .\models.py:30 .\models.py:148
 msgid "Name"
 msgstr "Наименование"
 
-#: .\models.py:39 .\models.py:60 .\models.py:102
+#: .\models.py:38 .\models.py:63 .\models.py:113
 msgid "Organization"
 msgstr "Организация"
 
-#: .\models.py:40
+#: .\models.py:39
 msgid "Organizations"
 msgstr "Организации"
 
-#: .\models.py:43 .\models.py:157
+#: .\models.py:42 .\models.py:168
 msgid "Type"
 msgstr "Тип"
 
-#: .\models.py:46
+#: .\models.py:45
 msgid "Organization Name"
 msgstr "Название организации"
 
-#: .\models.py:55 .\models.py:65 .\models.py:112
-#, fuzzy
-#| msgid "Description"
+#: .\models.py:58 .\models.py:68 .\models.py:123
 msgid "Position"
 msgstr "Должность"
 
-#: .\models.py:56
-#, fuzzy
-#| msgid "Description"
+#: .\models.py:59
 msgid "Positions"
 msgstr "Должности"
 
-#: .\models.py:74 .\models.py:78 .\models.py:98
+#: .\models.py:81 .\models.py:85 .\models.py:109
 #: .\templates\staff\employee_detail.html:18
 msgid "Nationality"
 msgstr "Национальность"
 
-#: .\models.py:75
+#: .\models.py:82
 msgid "Nationalities"
 msgstr "Национальности"
 
-#: .\models.py:87 .\models.py:154
+#: .\models.py:98 .\models.py:165
 msgid "Employee"
 msgstr "Сотрудник"
 
-#: .\models.py:88
+#: .\models.py:99
 msgid "Employees"
 msgstr "Сотрудники"
 
-#: .\models.py:91
+#: .\models.py:102
 msgid "First Name"
 msgstr "Имя"
 
-#: .\models.py:92
+#: .\models.py:103
 msgid "Last Name"
 msgstr "Фамилия"
 
-#: .\models.py:93
+#: .\models.py:104
 msgid "Middle Name"
 msgstr "Отчество"
 
-#: .\models.py:94 .\templates\staff\employee_detail.html:66
+#: .\models.py:105 .\templates\staff\employee_detail.html:66
 msgid "Biography"
 msgstr "Биография"
 
-#: .\models.py:115
+#: .\models.py:126
 msgid "Photo"
 msgstr "Фото"
 
-#: .\models.py:116 .\templates\staff\employee_detail.html:18
+#: .\models.py:127 .\templates\staff\employee_detail.html:18
 msgid "Birthday"
 msgstr "Дата рождения"
 
-#: .\models.py:117 .\templates\staff\filter_form.html:81
+#: .\models.py:128 .\templates\staff\filter_form.html:81
 msgid "Gender"
 msgstr "Пол"
 
-#: .\models.py:134 .\templates\staff\employee_detail.html:34
+#: .\models.py:145 .\templates\staff\employee_detail.html:34
 #: .\templates\staff\filter_form.html:60
 msgid "Reward Type"
 msgstr "Тип вознаграждения"
 
-#: .\models.py:135
+#: .\models.py:146
 msgid "Reward Types"
 msgstr "Типы вознаграждений"
 
-#: .\models.py:138
+#: .\models.py:149
 msgid "Image"
 msgstr "Значок"
 
-#: .\models.py:146 .\models.py:186
+#: .\models.py:157 .\models.py:197
 msgid "Reward"
 msgstr "Награда"
 
-#: .\models.py:147
+#: .\models.py:158
 msgid "Rewards"
 msgstr "Награды"
 
-#: .\models.py:150 .\templates\staff\employee_detail.html:33
+#: .\models.py:161 .\templates\staff\employee_detail.html:33
 msgid "Reward Name"
 msgstr "Наименование награды"
 
-#: .\models.py:151
+#: .\models.py:162
 msgid "Description"
 msgstr "Описание"
 
-#: .\models.py:161 .\templates\staff\employee_detail.html:35
+#: .\models.py:172 .\templates\staff\employee_detail.html:35
 msgid "Issued By"
 msgstr "Выдан"
 
-#: .\models.py:163
+#: .\models.py:174
 msgid "Date Of Issue"
 msgstr "Дата выдачи"
 
-#: .\models.py:178
+#: .\models.py:189
 msgid "Reward File"
 msgstr "Файл с наградой"
 
-#: .\models.py:179
+#: .\models.py:190
 msgid "Reward Files"
 msgstr "Файлы с наградами"
 
-#: .\models.py:182
+#: .\models.py:193
 msgid "File Name"
 msgstr "Имя файла"
 
-#: .\models.py:191
+#: .\models.py:202
 msgid "File"
 msgstr "Файл"
 
-#: .\templates\staff\base.html:31
+#: .\templates\staff\base.html:32
 msgid "About site"
 msgstr "О сайте"
 
 #: .\templates\staff\employee_detail.html:37
-#, fuzzy
-#| msgid "Date Of Issue"
 msgid "Date of Issue"
 msgstr "Дата выдачи"
 
 #: .\templates\staff\employee_detail.html:38
-#, fuzzy
-#| msgid "File"
 msgid "Files"
 msgstr "Файл"
 
