@@ -94,6 +94,7 @@ class NationalityAdmin(TranslatableAdmin):
 
 
 class PositionAdmin(TranslatableAdmin):
+    list_display = ["name", "organization", "number_of_employees"]
     list_filter = ["organization"]
     search_fields = ["translations__name"]
     fieldsets = (
