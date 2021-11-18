@@ -1,3 +1,4 @@
+from ckeditor import fields
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 from parler.admin import TranslatableAdmin, TranslatableStackedInline
@@ -10,6 +11,7 @@ from .models import (
     RewardType,
     Reward,
     RewardFile,
+    SiteInfo,
 )
 
 
@@ -169,6 +171,17 @@ class RewardFileAdmin2(TranslatableAdmin):
     )
 
 
+class SiteInfoAdmin(TranslatableAdmin):
+    fieldsets = (
+        (
+            _("Translated Fields"),
+            {
+                "fields": ("info",),
+            },
+        ),
+    )
+
+
 admin.site.register(Employee, EmployeeAdmin)
 admin.site.register(OrganizationType, OrganizationTypeAdmin)
 admin.site.register(Organization, OrganizationAdmin)
@@ -176,3 +189,4 @@ admin.site.register(RewardType, RewardTypeAdmin)
 admin.site.register(Reward, RewardAdmin)
 admin.site.register(Position, PositionAdmin)
 admin.site.register(Nationality, NationalityAdmin)
+admin.site.register(SiteInfo, SiteInfoAdmin)

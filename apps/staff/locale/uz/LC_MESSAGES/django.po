@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-16 10:30+0500\n"
+"POT-Creation-Date: 2021-11-18 10:06+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,13 +18,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\admin.py:23 .\admin.py:53 .\admin.py:74 .\admin.py:85 .\admin.py:102
-#: .\admin.py:118 .\admin.py:144 .\admin.py:164
+#: .\admin.py:25 .\admin.py:55 .\admin.py:76 .\admin.py:87 .\admin.py:104
+#: .\admin.py:120 .\admin.py:146 .\admin.py:166 .\admin.py:177
 msgid "Translated Fields"
 msgstr "Tarjima qilinadigan maydonlar"
 
-#: .\admin.py:34 .\admin.py:68 .\admin.py:96 .\admin.py:124 .\admin.py:138
-#: .\admin.py:155
+#: .\admin.py:36 .\admin.py:70 .\admin.py:98 .\admin.py:126 .\admin.py:140
+#: .\admin.py:157
 msgid "Nontranslated fields"
 msgstr "Tarjima qilinmaydigan maydonlar"
 
@@ -32,157 +32,173 @@ msgstr "Tarjima qilinmaydigan maydonlar"
 msgid "Staff"
 msgstr "Xodimlar"
 
-#: .\models.py:9 .\templates\staff\filter_form.html:89
+#: .\models.py:10 .\templates\staff\filter_form.html:89
 msgid "Male"
 msgstr "Erkak"
 
-#: .\models.py:9 .\templates\staff\filter_form.html:98
+#: .\models.py:10 .\templates\staff\filter_form.html:98
 msgid "Female"
 msgstr "Ayol"
 
-#: .\models.py:14 .\templates\staff\employee_detail.html:44
+#: .\models.py:15 .\models.py:16
+msgid "SiteInfo"
+msgstr "Sayt haqida"
+
+#: .\models.py:19
+#, fuzzy
+#| msgid "About site"
+msgid "About Site"
+msgstr "Sayt haqida"
+
+#: .\models.py:28 .\templates\staff\employee_detail.html:36
 msgid "Organization Type"
 msgstr "Tashkilot turi"
 
-#: .\models.py:15 .\templates\staff\filter_form.html:19
+#: .\models.py:29 .\templates\staff\filter_form.html:19
 msgid "Organization Types"
 msgstr "Tashkilot turlari"
 
-#: .\models.py:17 .\models.py:123
+#: .\models.py:31 .\models.py:137
 msgid "Name"
 msgstr "Nomi"
 
-#: .\models.py:25 .\models.py:46 .\models.py:88
+#: .\models.py:39 .\models.py:60 .\models.py:102
 msgid "Organization"
 msgstr "Tashkilot"
 
-#: .\models.py:26
+#: .\models.py:40
 msgid "Organizations"
 msgstr "Tashkilotlar"
 
-#: .\models.py:29 .\models.py:143
+#: .\models.py:43 .\models.py:157
 msgid "Type"
 msgstr "Turi"
 
-#: .\models.py:32
+#: .\models.py:46
 msgid "Organization Name"
 msgstr "Tashkilot nomi"
 
-#: .\models.py:41 .\models.py:51 .\models.py:98
+#: .\models.py:55 .\models.py:65 .\models.py:112
 #, fuzzy
+#| msgid "Description"
 msgid "Position"
-msgstr "Lavozimi"
+msgstr "Lavozim"
 
-#: .\models.py:42
+#: .\models.py:56
 #, fuzzy
+#| msgid "Description"
 msgid "Positions"
 msgstr "Lavozimlar"
 
-#: .\models.py:60 .\models.py:64 .\models.py:84
+#: .\models.py:74 .\models.py:78 .\models.py:98
 #: .\templates\staff\employee_detail.html:18
 msgid "Nationality"
 msgstr "Millati"
 
-#: .\models.py:61
+#: .\models.py:75
 msgid "Nationalities"
 msgstr "Millatlar"
 
-#: .\models.py:73 .\models.py:140
+#: .\models.py:87 .\models.py:154
 msgid "Employee"
 msgstr "Xodim"
 
-#: .\models.py:74
+#: .\models.py:88
 msgid "Employees"
 msgstr "Xodimlar"
 
-#: .\models.py:77
+#: .\models.py:91
 msgid "First Name"
 msgstr "Ismi"
 
-#: .\models.py:78
+#: .\models.py:92
 msgid "Last Name"
 msgstr "Familyasi"
 
-#: .\models.py:79
+#: .\models.py:93
 msgid "Middle Name"
 msgstr "Sharifi"
 
-#: .\models.py:80 .\templates\staff\employee_detail.html:74
+#: .\models.py:94 .\templates\staff\employee_detail.html:66
 msgid "Biography"
 msgstr "Biografiyasi"
 
-#: .\models.py:101
+#: .\models.py:115
 msgid "Photo"
 msgstr "Rasmi"
 
-#: .\models.py:102 .\templates\staff\employee_detail.html:18
+#: .\models.py:116 .\templates\staff\employee_detail.html:18
 msgid "Birthday"
 msgstr "Tug'ilgan sanasi"
 
-#: .\models.py:103 .\templates\staff\filter_form.html:81
+#: .\models.py:117 .\templates\staff\filter_form.html:81
 msgid "Gender"
 msgstr "Jinsi"
 
-#: .\models.py:120 .\templates\staff\employee_detail.html:42
+#: .\models.py:134 .\templates\staff\employee_detail.html:34
 #: .\templates\staff\filter_form.html:60
 msgid "Reward Type"
 msgstr "Mukofot turi"
 
-#: .\models.py:121
+#: .\models.py:135
 msgid "Reward Types"
 msgstr "Mukofot turlari"
 
-#: .\models.py:124
+#: .\models.py:138
 msgid "Image"
 msgstr "Rasm"
 
-#: .\models.py:132 .\models.py:172
+#: .\models.py:146 .\models.py:186
 msgid "Reward"
 msgstr "Mukofot"
 
-#: .\models.py:133
+#: .\models.py:147
 msgid "Rewards"
 msgstr "Mukofotlar"
 
-#: .\models.py:136 .\templates\staff\employee_detail.html:41
+#: .\models.py:150 .\templates\staff\employee_detail.html:33
 msgid "Reward Name"
 msgstr "Mukofot nomi"
 
-#: .\models.py:137
+#: .\models.py:151
 msgid "Description"
 msgstr "Qaydlar"
 
-#: .\models.py:147 .\templates\staff\employee_detail.html:43
+#: .\models.py:161 .\templates\staff\employee_detail.html:35
 msgid "Issued By"
 msgstr "Kim tomonidan berilgan"
 
-#: .\models.py:149
+#: .\models.py:163
 msgid "Date Of Issue"
 msgstr "Berilgan Sanasi"
 
-#: .\models.py:164
+#: .\models.py:178
 msgid "Reward File"
 msgstr "Mukofot fayli"
 
-#: .\models.py:165
+#: .\models.py:179
 msgid "Reward Files"
 msgstr "Mukofot fayllari"
 
-#: .\models.py:168
+#: .\models.py:182
 msgid "File Name"
 msgstr "Fayl nomi"
 
-#: .\models.py:177
+#: .\models.py:191
 msgid "File"
 msgstr "Fayl"
 
-#: .\templates\staff\employee_detail.html:45
+#: .\templates\staff\base.html:31
+msgid "About site"
+msgstr "Sayt haqida"
+
+#: .\templates\staff\employee_detail.html:37
 #, fuzzy
 #| msgid "Date Of Issue"
 msgid "Date of Issue"
 msgstr "Berilgan Sanasi"
 
-#: .\templates\staff\employee_detail.html:46
+#: .\templates\staff\employee_detail.html:38
 #, fuzzy
 #| msgid "File"
 msgid "Files"
@@ -220,6 +236,11 @@ msgstr "Qidiruv so'rovini kiriting"
 #: .\templates\staff\searching.html:11
 msgid "Search"
 msgstr "Qidirish"
+
+#~ msgid "You can't create new object but you can update existing one!"
+#~ msgstr ""
+#~ "Siz yangi ob'ekt yarata olmaysiz, lekin mavjud ob'ektni o'zgartirishingiz "
+#~ "mumkin!"
 
 #, fuzzy
 #~| msgid "Nontranslated fields"

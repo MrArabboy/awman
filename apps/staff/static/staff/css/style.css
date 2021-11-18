@@ -263,6 +263,7 @@ header .header-wrap .navbar__menu {
 
 header .header-wrap .navbar__menu .navbar__menu-item {
   padding: 0.5em 1em;
+  text-align: right;
   color: #171717;
   line-height: 20px;
   font-size: 16px;

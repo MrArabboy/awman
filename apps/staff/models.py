@@ -5,8 +5,22 @@ from parler.models import TranslatableModel, TranslatedFields
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils.translation import ugettext_lazy as _
 from smart_selects.db_fields import ChainedForeignKey
+from django.core.exceptions import ValidationError
 
 GENDER_CHOICES = (("male", _("Male")), ("female", _("Female")))
+
+
+class SiteInfo(TranslatableModel):
+    class Meta:
+        verbose_name = _("SiteInfo")
+        verbose_name_plural = _("SiteInfo")
+
+    translations = TranslatedFields(
+        info=RichTextUploadingField(_("About Site")),
+    )
+
+    def __str__(self):
+        return f"{self.info[:20]}..."
 
 
 class OrganizationType(TranslatableModel):

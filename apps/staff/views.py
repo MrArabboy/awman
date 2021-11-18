@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from .models import Employee, GENDER_CHOICES
+from .models import Employee, GENDER_CHOICES, SiteInfo
 from django.db.models import Q
 from django.http import JsonResponse
 
@@ -8,6 +8,10 @@ from django.http import JsonResponse
 def handler404(request, exception):
     response = render(request, "staff/404.html", status=404)
     return response
+
+
+def about(request):
+    return render(request, "staff/about.html", {"site_info": SiteInfo.objects.first()})
 
 
 class EmployeeListView(ListView):

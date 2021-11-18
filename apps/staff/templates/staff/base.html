@@ -23,9 +23,15 @@
             <div class="header-wrap">
                 <div class="header__logo">
                     <a href="{% url 'employees' %}">
-                        <img src="{% static 'staff/img/uztelecom arxiv logo.svg' %}" alt="logo" class="logo">
+                        <img src="{% static 'staff/img/utc23.svg' %}" style="width:240px;height:38px" alt="logo" class="logo">
                     </a>
                 </div>
+                 <nav>
+                    <div class="navbar__menu">
+                        <a href="{% url 'about'%}" class="navbar__menu-item">{% trans 'About site' %}</a>
+                        
+                    </div>
+                </nav>
                 {% comment %} {% include 'staff/navbar_menu.html' %} {% endcomment %}
                 {% include 'staff/select_language.html' %}
             </div>
@@ -34,14 +40,14 @@
     <main>
    
         <div class="container">
-            <section class="{% if request.path == "/" %}person-list{% else %}person-show{% endif %}">
+            <section class="{% if request.path == "/" %}person-list{% elif request.path == "/about" %}{% else %}person-show{% endif %}">
                 {% include 'staff/filter_form.html' %}
                         {% block content %}
                         {% endblock content %}
             </section>
         </div>
     </main>
-
+    
     {% include 'staff/footer.html' %}
     <script src="{% static 'staff/js/slider-range.js' %}"></script>
     {% comment %} <script>
