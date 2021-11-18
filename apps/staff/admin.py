@@ -132,7 +132,7 @@ class RewardAdmin(TranslatableAdmin):
     search_fields = ["employee", "name", "description", "type", "issued_by"]
     autocomplete_fields = ["employee", "type", "issued_by"]
     inlines = [RewardFileAdmin]
-    list_filter = ["type"]
+    list_filter = ["type", "issued_by"]
     fieldsets = (
         (
             _("Nontranslated fields"),
